@@ -1,0 +1,35 @@
+[20-Nov-2016 09:42:52 America/Chicago] PHP Warning:  require(/home/dondecom/public_html/jota/vendor/composer/../symfony/var-dumper/Resources/functions/dump.php): failed to open stream: No such file or directory in /home/dondecom/public_html/jota/vendor/composer/autoload_real.php on line 66
+[20-Nov-2016 09:42:52 America/Chicago] PHP Stack trace:
+[20-Nov-2016 09:42:52 America/Chicago] PHP   1. {main}() /home/dondecom/public_html/jota/public/index.php:0
+[20-Nov-2016 09:42:52 America/Chicago] PHP   2. require() /home/dondecom/public_html/jota/public/index.php:22
+[20-Nov-2016 09:42:52 America/Chicago] PHP   3. require() /home/dondecom/public_html/jota/bootstrap/autoload.php:17
+[20-Nov-2016 09:42:52 America/Chicago] PHP   4. ComposerAutoloaderInitbba8019f94646a32647832dcf719060e::getLoader() /home/dondecom/public_html/jota/vendor/autoload.php:7
+[20-Nov-2016 09:42:52 America/Chicago] PHP   5. composerRequirebba8019f94646a32647832dcf719060e() /home/dondecom/public_html/jota/vendor/composer/autoload_real.php:56
+[20-Nov-2016 09:42:52 America/Chicago] PHP Fatal error:  require(): Failed opening required '/home/dondecom/public_html/jota/vendor/composer/../symfony/var-dumper/Resources/functions/dump.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/dondecom/public_html/jota/vendor/composer/autoload_real.php on line 66
+[20-Nov-2016 09:42:52 America/Chicago] PHP Stack trace:
+[20-Nov-2016 09:42:52 America/Chicago] PHP   1. {main}() /home/dondecom/public_html/jota/public/index.php:0
+[20-Nov-2016 09:42:52 America/Chicago] PHP   2. require() /home/dondecom/public_html/jota/public/index.php:22
+[20-Nov-2016 09:42:52 America/Chicago] PHP   3. require() /home/dondecom/public_html/jota/bootstrap/autoload.php:17
+[20-Nov-2016 09:42:52 America/Chicago] PHP   4. ComposerAutoloaderInitbba8019f94646a32647832dcf719060e::getLoader() /home/dondecom/public_html/jota/vendor/autoload.php:7
+[20-Nov-2016 09:42:52 America/Chicago] PHP   5. composerRequirebba8019f94646a32647832dcf719060e() /home/dondecom/public_html/jota/vendor/composer/autoload_real.php:56
+[20-Nov-2016 09:42:55 America/Chicago] PHP Warning:  require(/home/dondecom/public_html/jota/vendor/composer/../symfony/var-dumper/Resources/functions/dump.php): failed to open stream: No such file or directory in /home/dondecom/public_html/jota/vendor/composer/autoload_real.php on line 66
+[20-Nov-2016 09:42:55 America/Chicago] PHP Stack trace:
+[20-Nov-2016 09:42:55 America/Chicago] PHP   1. {main}() /home/dondecom/public_html/jota/public/index.php:0
+[20-Nov-2016 09:42:55 America/Chicago] PHP   2. require() /home/dondecom/public_html/jota/public/index.php:22
+[20-Nov-2016 09:42:55 America/Chicago] PHP   3. require() /home/dondecom/public_html/jota/bootstrap/autoload.php:17
+[20-Nov-2016 09:42:55 America/Chicago] PHP   4. ComposerAutoloaderInitbba8019f94646a32647832dcf719060e::getLoader() /home/dondecom/public_html/jota/vendor/autoload.php:7
+[20-Nov-2016 09:42:55 America/Chicago] PHP   5. composerRequirebba8019f94646a32647832dcf719060e() /home/dondecom/public_html/jota/vendor/composer/autoload_real.php:56
+[20-Nov-2016 09:42:55 America/Chicago] PHP Fatal error:  require(): Failed opening required '/home/dondecom/public_html/jota/vendor/composer/../symfony/var-dumper/Resources/functions/dump.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/dondecom/public_html/jota/vendor/composer/autoload_real.php on line 66
+[20-Nov-2016 09:42:55 America/Chicago] PHP Stack trace:
+[20-Nov-2016 09:42:55 America/Chicago] PHP   1. {main}() /home/dondecom/public_html/jota/public/index.php:0
+[20-Nov-2016 09:42:55 America/Chicago] PHP   2. require() /home/dondecom/public_html/jota/public/index.php:22
+[20-Nov-2016 09:42:55 America/Chicago] PHP   3. require() /home/dondecom/public_html/jota/bootstrap/autoload.php:17
+[20-Nov-2016 09:42:55 America/Chicago] PHP   4. ComposerAutoloaderInitbba8019f94646a32647832dcf719060e::getLoader() /home/dondecom/public_html/jota/vendor/autoload.php:7
+[20-Nov-2016 09:42:55 America/Chicago] PHP   5. composerRequirebba8019f94646a32647832dcf719060e() /home/dondecom/public_html/jota/vendor/composer/autoload_real.php:56
+[20-Nov-2016 16:57:14 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/dondecom/public_html/jota/app/funcionesGlobales.php on line 6
+[20-Nov-2016 16:57:52 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/dondecom/public_html/jota/app/funcionesGlobales.php on line 13
+[20-Nov-2016 16:57:55 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/dondecom/public_html/jota/app/funcionesGlobales.php on line 13
+[20-Nov-2016 16:58:11 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/dondecom/public_html/jota/app/funcionesGlobales.php on line 13
+[20-Nov-2016 16:58:13 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/dondecom/public_html/jota/app/funcionesGlobales.php on line 13
+[20-Nov-2016 16:58:41 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/dondecom/public_html/jota/app/funcionesGlobales.php on line 13
+[20-Nov-2016 16:58:43 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/dondecom/public_html/jota/app/funcionesGlobales.php on line 13

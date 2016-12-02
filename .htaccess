@@ -1,0 +1,15 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^empresas\.dondecomo\.skn1\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.empresas\.dondecomo\.skn1\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteRule ^/?$ "https\:\/\/dondecomo\.skn1\.com\/jota\/public\/empresas" [R=301,L]
+RewriteCond %{HTTP_HOST} ^prueba\.dondecomo\.skn1\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.prueba\.dondecomo\.skn1\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteRule ^empresas$ "https\:\/\/dondecomo\.skn1\.com\/jota\/public\/empresas" [R=301,L]
+
