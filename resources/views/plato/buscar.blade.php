@@ -282,11 +282,12 @@
 
             </div>
         </div>
-            <div class="overlay overlay-slidedown">
-                <button type="button" class="overlay-close">Close</button>
-                            <div id="modal_content"></div>
-            </div>
+
         </main>
+        <div class="overlay overlay-slidedown">
+            <button type="button" class="overlay-close">Close</button>
+                        <div id="modal_content"></div>
+        </div>
         <script src="{{asset('js/main.js')}}" type="text/javascript"></script>
          <script>
          // creating `min` and `max` value in range slider

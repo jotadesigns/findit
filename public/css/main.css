@@ -84,7 +84,7 @@ body {
     z-index: 200;
 }
 .head-opaque{
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(11, 17, 82, 0.90);
 }
 .hdnavpad{
     color: white;
@@ -1121,9 +1121,77 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
     background-color: #fff;
     padding-bottom: 40px;
 }
+.restaurant_comment{
+	border: 1px solid rgba(48, 123, 187, 0.26);
+	margin: 7px;
+	padding: 20px;
+	position: relative;
+}
+.restaurant_comment_header{
+	border-bottom:  1px solid rgba(48, 123, 187, 0.26);
+	padding: 0;
+	padding-bottom: 20px;
+}
+.restaurant_comment_header div{
+	padding: 0;
+}
+.restaurant_comment_header span{
+	position: absolute;
+	top:44px;
+	left: 50%;
+	font-size: 19px;
+	background-color: #fff;
+	height: 0;
+	width: 23px;
+	text-align: center;
+	color: #337ab7;
+}
+.restaurant_comment_text{
+	margin-top: 35px;
+	font-size: 15px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	color: #545454;
+}
+.circle {
+	border-radius: 50%;
+
+	/* width and height can be anything, as long as they're equal */
+}
+.restaurant_comment_author{
+	font-size: 17px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	margin-left: 20px;
+	margin-top: 11px;
+}
+.restaurant_comment_time{
+	font-size: 14px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	color: grey;
+	padding-right: 20px;
+	margin-top: 15px;
+	float: right;
+}
+#restaurant_comments_global h6{
+	font-size: 20px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	color: #337ab7;
+	letter-spacing: 1.3px;
+	text-transform: uppercase;
+	margin-top: 10px;
+	margin-bottom: 40px;
+	text-align: center;
+}
+.restaurant_comment_header div:first-child img,.restaurant_comment_header div:first-child p {
+	float: left;
+}
 .plato_restaurante{
-    height: 49px;
+
     border-bottom: 1px solid #CDDFEE;
+	overflow: auto;
 
 }
 .platoright_restaurante{
@@ -1131,7 +1199,8 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
     font-size: 18px;
     letter-spacing: 1.3px;
     color:#337ab7;
-    margin-top: 12px;
+    margin-top: 15px;
+	margin-bottom: 15px;
     padding-right: 3%;
 
 
@@ -1140,7 +1209,8 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
         font-size: 18px;
     font-family: 'Raleway', sans-serif;
     color:#337ab7;
-    margin-top: 12px;
+    margin-top: 15px;
+	margin-bottom: 15px;
     text-transform: capitalize;
 
 }
@@ -1621,7 +1691,7 @@ margin-bottom: 100px;
 		padding: 0 20px;
 	}
 	.link{
-		font-size: 1.5em;
+		font-size: 1.4em;
 	}
 	.nav-enlaces .nav-estrella ,.nav-languages, .nav-separator{
 		display: none;
@@ -1713,6 +1783,116 @@ margin-bottom: 100px;
 	#business-search h2{
 		font-size: 22px;
 	}
+	#datos_restaurante{
+		padding: 20px 0;
+	}
+	.datos_restaurante_extra{
+		text-align: center!important;
+		margin-bottom: 10px;
+	}
+	.datos_restaurante_extra p{
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 14px!important;
+	}
+	#direccion_restaurante {
+		font-size: 12px;
+		margin-bottom: 15px;
+	}
+	#nombre_restaurante  {
+		font-size: 20px;
+	}
+	.descmenu_restaurante{
+		font-size: 12px;
+		margin-top: -5px;
+	}
+	.menunav_restaurante_no-padding{
+		padding: 0;
+	}
+	#menu_restaurante div:first-child{
+		padding: 0;
+	}
+	.menu_restaurante-nopadding{
+		width: 100%;
+		margin-left: 0;
+		padding-left: 10px!important;
+		padding-right: 10px!important;
+	}
+	#imagen_restaurante {
+		padding: 100px 10px 100px 10px;
+	}
+	#imagen_restaurante h2{
+		font-size: 30px;
+	}
+	.cuadromenu_restaurante{
+		height: initial;
+	}
+	#puntuacion_restaurante{
+		font-size: 20px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	.overlay ul{
+		margin-top: 10px!important;
+	}
+	.platoright_restaurante{
+		font-size: 15px;
+	}
+	.platoleft_restaurante{
+		font-size: 15px;
+		margin-bottom: 10px!important;
+		margin-top: 10px!important;
+	}
+	#letreromenu_restaurante{
+		font-size: 17px;
+		margin-top: 25px;
+		margin-bottom: 0;
+	}
+	.nombre_categoria{
+		margin-top: 30px;
+		font-size: 17px;
+	}
+	#menu_restaurante{
+		padding: 0;
+	}
+	.restaurant_comment_header div:first-child img{
+		width: 35px!important;
+		height: 35px!important;
+	}
+	.restaurant_comment_author{
+		margin-top: 0;
+		margin-left: 10px;
+		font-size: 14px;
+	}
+	.restaurant_comment_time-position{
+		position: absolute;
+		padding-left: 45px!important;
+		padding-top: 4px!important;
+	}
+	.restaurant_comment_time{
+		float: none;
+		margin-top: 11px;
+		font-size: 13px;
 
+	}
+	.c100 > span{
+		top: 3px!important;
+		font-size: 16px!important;
+		left: 0!important;
 
+	}
+	.c100.small{
+		font-size: 32px!important;
+	}
+	.restaurant_comment_header span{
+		left: 46%;
+		top: 40px;
+	}
+	.restaurant_comment_content{
+		padding: 0;
+	}
+	#restaurant_comments_global h6{
+		margin-bottom: 25px;
+		margin-top: 30px;
+	}
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Restaurante;
 use App\Menu;
 use App\Plato;
@@ -24,7 +25,7 @@ public function index(Request $request)
 {
 
 //PETICION DE DATOS A LA API DE GOOGLE DEL RESTAURANTE
-$manejadorREST = new Prest("https://maps.googleapis.com/maps/api/place/details/json?placeid=".$request->placeid."&key=".getKey());
+$manejadorREST = new Prest("https://maps.googleapis.com/maps/api/place/details/json?placeid=".$request->placeid."&language=".App::getLocale()."&key=".getKey());
 $datos_restaurante = $manejadorREST->realizarPeticion();
 
 //SACAMOS DE LA BBDD DATOS DEL RESTAURANTE
@@ -51,9 +52,9 @@ if(Auth::check() && isset($userExtra)){
 
 //OBTENCION DE LA IMAGEN CABECERA
 $datos_imagen = url('/assets/imagenes/cross.png');
-if(isset($restaurante->indice_foto)){
-  if($restaurante->indice_foto!==null){
-      $manejadorREST->setUrl("https://maps.googleapis.com/maps/api/place/photo?maxwidth=2000&photoreference=".$datos_restaurante["result"]["photos"][$restaurante->indice_foto]["photo_reference"]."&key=".getKey());
+if(isset($restaurante[0]->indice_foto)){
+  if($restaurante[0]->indice_foto!==null){
+      $manejadorREST->setUrl("https://maps.googleapis.com/maps/api/place/photo?maxwidth=2000&photoreference=".$datos_restaurante["result"]["photos"][$restaurante[0]->indice_foto]["photo_reference"]."&key=".getKey());
       $datos_imagen = $manejadorREST->getUrl();
   }
 }

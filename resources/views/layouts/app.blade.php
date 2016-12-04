@@ -4,6 +4,14 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#4d57c5" />
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#4d57c5">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#4d57c5">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#4d57c5">
+
 	<title>@lang('layouts.title')</title>
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
@@ -19,6 +27,7 @@
 	<link href="{{ asset('/css/admin.css') }}" rel="stylesheet" type="text/css"/>
 		<link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css"/>
 		<link href="{{ asset('/css/image-picker.css') }}" rel="stylesheet" type="text/css"/>
+		<link href="{{ asset('/css/circle.css') }}" rel="stylesheet" type="text/css"/>
 		<script src="{{ asset('/js/image-picker.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('/js/demo1.js') }}" type="text/javascript"></script>
 		<!-- CSS VARIABLE -->
