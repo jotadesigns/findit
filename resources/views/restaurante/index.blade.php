@@ -225,7 +225,6 @@ No tenemos más información de ese restaurante
                                             </div>
                                         </div>
 
-
                                     @endif
                                 @endforeach
                             </div>
@@ -233,14 +232,6 @@ No tenemos más información de ese restaurante
                         @endif
                    </section>
 
-
-                                    @endif
-                                @endforeach
-                            </div>
-
-
-                        @endif
-                   </section>
 
                    @if(isset($datos_meteorologicos))
                    <section id="restaurant_weather_extrainfo" class="col-xs-12 col-sm-10 col-md-4 col-lg-4 col-xs-offset-0 col-sm-offset-1 col-md-offset-4 col-lg-offset-4">
@@ -260,25 +251,10 @@ No tenemos más información de ese restaurante
                      <a class="btn btn-warning" style="color:black; font-weight: bold;" href="{{url('/empresas/'.$datos_restaurante['result']['place_id'])}}">¿Quieres controlar este restaurante? FIND IT Empresas</a>
                   </div>
 
-                   @if(isset($datos_meteorologicos))
-                   <section id="restaurant_weather_extrainfo" class="col-xs-12 col-sm-10 col-md-4 col-lg-4 col-xs-offset-0 col-sm-offset-1 col-md-offset-4 col-lg-offset-4">
-
-                        <h6>Tiempo</h6>
-                        <div id="restaurant_weather_container">
-                            <p class="weather_display_location">{{$datos_meteorologicos['current_observation']['display_location']['city']}}</p>
-                            <img src="{{$datos_meteorologicos['current_observation']['icon_url']}}" alt="">
-                            <p class="weather_display_feelslike">{{$datos_meteorologicos['current_observation']['feelslike_c']}}°<span>min {{$datos_meteorologicos['current_observation']['dewpoint_c']}}°</span></p>
-
-                       </div>
-
-                   </section>
-                   @endif
-
-
                 <div class="restaurant-business-control col-xs-12 col-sm-12 col-md-12 col-lg-12">
                    <a href="{{url('/empresas/'.$datos_restaurante['result']['place_id'])}}">Controla el  restaurante</a>
                </div>
-
+               
             </div>
 
 
