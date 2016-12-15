@@ -112,18 +112,11 @@
 		</div>
 	</nav>
 	<div id="wrapper">
-<<<<<<< HEAD
-<<<<<<< 02fd755ac307293c9999a5d8f3fe8b97a17d9610
-		
-=======
+
 		<div id="wrapper">
->>>>>>> parent of 02fd755... 2.3 arreglo de ajax
-	        @yield('content')
-=======
->>>>>>> 5409b6c3706c11a4376c64cc65d867430a696e4a
 
 	        @yield('content')
-	
+
 			<!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER -->
 	<div id="overbox3">
 	    <div id="infobox3">
