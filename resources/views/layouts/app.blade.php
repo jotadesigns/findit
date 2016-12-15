@@ -113,6 +113,7 @@
 	</nav>
 	<div id="wrapper">
 
+
 	        @yield('content')
 
 			<!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER -->
@@ -152,8 +153,8 @@
 					    	<li><a href="#">Síguenos en Pinterest</a></li>
 						</ul>
 					</div>
-=======
-        @yield('content')
+
+
 
 		<!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER -->
 		<footer>
@@ -166,6 +167,7 @@
 				    	<li><a href="#">Lorem Ipsum</a></li>
 				    	<li><a href="#">Lorem Ipsum</a></li>
 					</ul>
+
 				</div>
 				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
 				    <ul>
@@ -184,12 +186,60 @@
 				    	<li><a href="#">Lorem Ipsum</a></li>
 				    	<li><a href="#">Lorem Ipsum</a></li>
 					</ul>
->>>>>>> parent of a6596ae... commit2.2 fusionDavidAdminCssJorge
+
 				</div>
+
+				</div>
+				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+				    <ul>
+						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+				    <ul>
+						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+				</div>
+
 			</div>
 
 		</footer>
 	</div>
+
+
+    <!-- Scripts -->
+	<script>
+	jQuery(document).ready(function($) {
+
+	  $(window).scroll(function() {
+	    var scrollPos = $(window).scrollTop(),
+	        navbar = $('.hdnav');
+			navbar2 = $('#perfil_leftgrid');
+
+	    if (scrollPos > 1) {
+	      navbar.addClass('head-opaque');
+	    } else {
+	      navbar.removeClass('head-opaque');
+	    }
+		if (scrollPos > 60) {
+			 navbar2.addClass('profile-menu-open');
+		}else{
+			navbar2.removeClass('profile-menu-open');
+		}
+	  });
+	});
+
+	</script>
+
+
 
     <!-- Scripts -->
 	<script>
