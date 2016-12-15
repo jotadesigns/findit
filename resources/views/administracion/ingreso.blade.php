@@ -1,4 +1,4 @@
-﻿@extends('layouts.appadmin')
+@extends('layouts.appadmin')
 
 @section('content')
 
@@ -11,13 +11,7 @@
 
 
 
-
-  <div class="panel panel-primary">
-    <div class="panel-heading formBuscarAdmin ">  <h2>Busqueda por direccion</h2></div>
-
-  <div class="panel-body formSubBuscarAdmin">
         <form id="form_busqueda" action="{{ url('/buscarRestaurantesAdmin') }}" method="POST">
-
           <div class="search-form search-direction">
               <i class="ion-android-search"></i>
               <input id="direccion" type="text"  name="busqueda" placeholder="@lang('welcome.placeholder_direccion')" required/>
@@ -30,13 +24,8 @@
             <input class="boton_full btn btn-primary" type="submit" name="enviarbusqueda" value="Buscar"/>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
         </form>
-</div>
-      </div>
-    <div class="panel panel-primary">
-            <div class="panel-heading formBuscarAdmin ">  <h2>Busqueda masiva por establecimiento</h2></div>
-<div class="panel-body formSubBuscarAdmin">
         <form id="form_busqueda" action="{{ url('/buscarRestaurantesMasivo') }}" method="POST">
-
+          <h2>masivo</h2>
           <div class="search-form search-direction">
               <i class="ion-android-search"></i>
               <input id="direccion" type="text"  name="busqueda" placeholder="@lang('welcome.placeholder_direccion')" required/>
@@ -48,12 +37,6 @@
 
     </div>
  </div>
-  </div>
-   </div>
-   <div style="width:100%; height:120px;">
-   </div>
-   </div>
-
 
 
 @endsection

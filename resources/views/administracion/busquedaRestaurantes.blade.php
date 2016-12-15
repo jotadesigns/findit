@@ -10,7 +10,7 @@
 @if ( $restaurante['fichado'] == false )
 <div class="container">
 <div id="resultados_ajax"></div>
-<form>
+<form><h1></h1>
   <div class="panelResultados panelResultadosNoFichado">
 <p class="tituloResultado">{{ $restaurante['name'] }}</p>
 <p class="direccionResultado">{{ $restaurante['vicinity'] }}</p>
@@ -34,9 +34,7 @@
 @endforeach
 
 @endif
-<div style="width:100%; height:120px;">
-</div>
-</div>
+
 
 <script>
 function realizaProceso(placeid,nombre,direccion){

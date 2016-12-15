@@ -11,23 +11,22 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <div class="panel panel-default"  style="border-radius: 32px;    border-color: #b73a3a;background: #b73a3a;">
-
+            <div class="panel panel-default">
 
 
 @foreach ($restaurantes as $restaurante)
-<div class="panel-heading" style="border-radius: 32px;color: #FFE;background-color: #7d6199;border-color: #554268;"><h2>Borrado de platos para {{ $restaurante->nombre_restaurante }}</h2></div>
+<div class="panel-heading"><h2>Borrado de platos para {{ $restaurante->nombre_restaurante }}</h2></div>
 @endforeach
 
       </div>
 
-  <div class="cartaMenu" style="background:wheat;">
 
-<div class="panel-heading"><h3 style="text-align:center;">PLATOS</h3></div>
+<div class="panel panel-default">
+<div class="panel-heading"><h5>PLATOS</h5></div>
 @if ( !$menus->count() )
   No tienes platos asociados
 @else
-<div class="cartaMenu" style="background:#f2e6ff;">
+
 @foreach ($menus as $plato)
 <form action="{{ url('/borrarPlatos')}}" method="POST">
 <p>Nombre plato: {{ $plato->nombre }}</p>
@@ -42,16 +41,14 @@
 @endforeach
     </div>
   </div>
-    </div>
 </div>
 
+</div>
 
 
 @endif
-<div style="width:100%; height:120px;">
-</div>
-</div>
 @endif
+
 
 
 

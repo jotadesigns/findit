@@ -340,19 +340,6 @@ if(!isset($claves_filtros) || $claves_filtros==""){
         }
         return $resultado;
     }
-    function filtroTipoRestaurante($arrayTodosRestaurantes,$tipo,$valor){
-      $resultado = [];
-       $tipos =DB::table('tipo_restaurante')->get();
-      foreach($arrayTodosRestaurantes as $restaurante){
-
-            if($restaurante['tipo'] == $tipo){
-                array_push($resultado,$restaurante);
-
-          }
-
-      }
-      return $resultado;
-    }
 
         //Separamos los valores que nos llegan, vienen en forma de texto
         $filtros_split=explode("&",$claves_filtros);
@@ -380,32 +367,6 @@ if(!isset($claves_filtros) || $claves_filtros==""){
                                     $resultado = filtroCheckBox($restaurantes_cercanos,$nombreF,$valueF);
                                 }
                                     break;
-                                    case '1':
-                                    case '2':
-                                    case '3':
-                                    case '4':
-                                    case '5':
-                                    case '6':
-                                    case '7':
-                                    case '8':
-                                    case '9':
-                                    case '10':
-                                    case '11':
-                                    case '12':
-                                    case '13':
-                                    case '14':
-                                    case '15':
-                                    case '16':
-                                    case '17':
-                                    case '18':
-                                    case '19':
-                                    case '20':
-                                        if(isset($resultado)){
-                                            $resultado = filtroTipoRestaurante($resultado,$nombreF,$valueF);
-                                        }else{
-                                            $resultado = filtroTipoRestaurante($restaurantes_cercanos,$nombreF,$valueF);
-                                        }
-                                        break;
                     default:
                         $resultado=null;
                         break;
@@ -520,26 +481,18 @@ public function update(Project $project, Task $task)
  {
    $datosRestaurante = $request->input('datos');
    $datosPlatos = $request->except('datos');
-
    $imagen = $request->get('imagen');
-
     $tiempo ="dia";
 
 
-    foreach($datosPlatos as $id_plato => $arrayValores){
-        if (is_array($arrayValores)){
-            if(isset($arrayValores['estrella'])){
-              $arrayValores['estrella']=1;
-            }else{
-                 $arrayValores['estrella']=0;
-            }
+ foreach($datosPlatos as $arrayValores){
+     if (is_array($arrayValores)){
 
-            Plato::insert(['id_menu' => $datosRestaurante['id_menu'], 'estrella' => $arrayValores['estrella'], 'nombre' => $arrayValores['nombre'], 'precio' => $arrayValores['precio'], 'categoria_plato' => $arrayValores['categoria_plato'], 'icono' => $arrayValores['imagen']]);
-
-        }
+             plato::insert(['id_menu' => $datosRestaurante['id_menu'], 'nombre' => $arrayValores['nombre'], 'precio' => $arrayValores['precio'], 'categoria_plato' => $arrayValores['categoria_plato'], 'icono' => $arrayValores['imagen']]);
 
 
-    }
+     }
+ }
 
 
 

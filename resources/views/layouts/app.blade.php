@@ -19,7 +19,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600i,700,900" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<script src="{{ asset('/js/cookies.js') }}" type="text/javascript"></script>
+
 	<script src="{{ asset('/js/modernizr.custom.js') }}" type="text/javascript"></script>
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -112,18 +112,9 @@
 		</div>
 	</nav>
 	<div id="wrapper">
-<<<<<<< HEAD
-<<<<<<< 02fd755ac307293c9999a5d8f3fe8b97a17d9610
-		
-=======
-		<div id="wrapper">
->>>>>>> parent of 02fd755... 2.3 arreglo de ajax
-	        @yield('content')
-=======
->>>>>>> 5409b6c3706c11a4376c64cc65d867430a696e4a
 
 	        @yield('content')
-	
+
 			<!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER -->
 	<div id="overbox3">
 	    <div id="infobox3">
@@ -161,34 +152,68 @@
 					    	<li><a href="#">Síguenos en Pinterest</a></li>
 						</ul>
 					</div>
+=======
+        @yield('content')
+
+		<!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER -->
+		<footer>
+			<div class="container">
+				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+				    <ul>
+						<li class="footer-title"><a class="link link--nukun" href="{{ url('/') }}">Fin<span>d</span> it</a></li>
+				    	<li><a href="{{ url('/').'/'.LaravelLocalization::getCurrentLocale().'/empresas' }}">Para empresas</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
 				</div>
+				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+				    <ul>
+						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+				    <ul>
+						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+				    	<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+>>>>>>> parent of a6596ae... commit2.2 fusionDavidAdminCssJorge
+				</div>
+			</div>
 
-			</footer>
-		</div>
+		</footer>
+	</div>
 
-	    <!-- Scripts -->
-		<script>
-		jQuery(document).ready(function($) {
+    <!-- Scripts -->
+	<script>
+	jQuery(document).ready(function($) {
 
-		  $(window).scroll(function() {
-		    var scrollPos = $(window).scrollTop(),
-		        navbar = $('.hdnav');
-				navbar2 = $('#perfil_leftgrid');
+	  $(window).scroll(function() {
+	    var scrollPos = $(window).scrollTop(),
+	        navbar = $('.hdnav');
+			navbar2 = $('#perfil_leftgrid');
 
-		    if (scrollPos > 1) {
-		      navbar.addClass('head-opaque');
-		    } else {
-		      navbar.removeClass('head-opaque');
-		    }
-			if (scrollPos > 60) {
-				 navbar2.addClass('profile-menu-open');
-			}else{
-				navbar2.removeClass('profile-menu-open');
-			}
-		  });
-		});
+	    if (scrollPos > 1) {
+	      navbar.addClass('head-opaque');
+	    } else {
+	      navbar.removeClass('head-opaque');
+	    }
+		if (scrollPos > 60) {
+			 navbar2.addClass('profile-menu-open');
+		}else{
+			navbar2.removeClass('profile-menu-open');
+		}
+	  });
+	});
 
-		</script>
+	</script>
 
-	</body>
-	</html>
+</body>
+</html>

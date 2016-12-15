@@ -39,14 +39,11 @@
                           </div>
                           @endforeach
                           </div>
-
                           <div class="overlay overlay-slidedown">
                     <button type="button" class="overlay-close">Close</button>
                                   <div id="modal_content"></div>
                 </div>
 
-
-  <script src="{{asset('js/main.js')}}" type="text/javascript"></script>
                 <script>
                       //votacion de favorito
                       $( ".p_favorito" ).click(function() {
@@ -67,28 +64,16 @@
                           });
                       });
                       //funcion para sacar un restarante
-                      //funcion para sacar un restarante
                           function realizaProceso(placeid){
                                   var parametros = {
                                           "placeid" : placeid
                                   };
-
                                   $.ajax({
                                      type:'POST',
                                      url:"{{ url('/').'/'.LaravelLocalization::getCurrentLocale().'/getrestaurante' }}",
                                      data: {'_token': '<?php echo csrf_token() ?>', 'placeid': placeid },
                                      success:function(data){
-                                       (function() {
-                                          $( ".trigger-overlay" ).click(function() {
-                                              $(".overlay").toggleClass( "open" );
-                                          });
-                                           $( ".overlay-close" ).click(function() {
-                                              $(".overlay").removeClass( "open" );
-                                          });
-                                         console.log(data.html);
                                         $("#modal_content").html(data.html);
-
-                                         })();
                                      }
                                   });
                           }
