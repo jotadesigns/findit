@@ -53,17 +53,16 @@ function realizaProceso(placeid,nombre,direccion){
                   type: "POST",
                   url: "{{ url('/ficharRestaurante')}}",
                   data: parametros,
-                  beforeSend: function () {
-                                $("#resultados_ajax").html("Procesando, espere por favor...");
-                        },
-                        success:  function (response) {
 
-                                $("#resultados_ajax").html(response);
-                                $("#"+placeid).addClass('btn btn-success').text('RESTAURANTE FICHADO)');
-                                $("#"+placeid).prop("onclick", false);
+                  success: function(response) {
 
-                        }
+                    $("#resultados_ajax").html(response);
+                    $("#"+placeid).addClass('btn btn-success').text('RESTAURANTE FICHADO');
+                    $("#"+placeid).prop("onclick", false);
+                  }
                 });
+
+
         }
 </script>
 

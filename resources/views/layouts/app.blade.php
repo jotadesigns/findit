@@ -112,7 +112,7 @@
 		</div>
 	</nav>
 	<div id="wrapper">
-		<div id="wrapper">
+		
 	        @yield('content')
 
 			<!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER -->
