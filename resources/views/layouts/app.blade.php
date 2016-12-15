@@ -154,64 +154,6 @@
 						</ul>
 					</div>
 
-
-
-		<!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER -->
-		<footer>
-			<div class="container">
-				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
-				    <ul>
-						<li class="footer-title"><a class="link link--nukun" href="{{ url('/') }}">Fin<span>d</span> it</a></li>
-				    	<li><a href="{{ url('/').'/'.LaravelLocalization::getCurrentLocale().'/empresas' }}">Para empresas</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-					</ul>
-
-				</div>
-				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-				    <ul>
-						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-				    <ul>
-						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-					</ul>
-
-				</div>
-
-				</div>
-				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-				    <ul>
-						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-				    <ul>
-						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-					</ul>
-				</div>
-
-			</div>
-
-		</footer>
 	</div>
 
 
