@@ -250,11 +250,6 @@ No tenemos más información de ese restaurante
                    <div style="padding-left:35%; margin-top:15px; margin-bottom:15px;">
                      <a class="btn btn-warning" style="color:black; font-weight: bold;" href="{{url('/empresas/'.$datos_restaurante['result']['place_id'])}}">¿Quieres controlar este restaurante? FIND IT Empresas</a>
                   </div>
-
-                <div class="restaurant-business-control col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                   <a href="{{url('/empresas/'.$datos_restaurante['result']['place_id'])}}">Controla el  restaurante</a>
-               </div>
-               
             </div>
 
 

@@ -1,4 +1,8 @@
-
+.bordeRojoIconoAdmin{
+	border-width: 5px;
+    border-style: ridge;
+    border-color: #caaee7;
+}
 #busqueda_negocios{
     margin-top: 50px;
     margin-bottom: 50px;
@@ -261,4 +265,23 @@ margin-top: 50px;
 }
 .myclass{
     border: 0px solid white;
+}
+.formBuscarAdmin{
+	color: #fff !important;
+	background-color: #554268 !important;
+
+border-color: #ffffff !important;
+}
+.formSubBuscarAdmin{
+	background-color: #eadcf8 !important;
+
+
+}
+ #form_busqueda{
+	padding: 0px 0 50px 0;
+    width: 100%;
+}
+
+.labelAdm{
+	margin-top: 5px;
 }

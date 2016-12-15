@@ -191,7 +191,149 @@
                                             </div></li>
                                         </ul>
                                     </div>
-
+                                    <div class="filter-form-food col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <h6>Tipo Restaurante</h6>
+                                        <div class="filter-form-food col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <ul>
+                                            <li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                    <label><input type="checkbox"  name="1" class="filtros checkbox_animado"/>
+                                                    <span class="label-text"></span></label>
+                                                </div>
+                                                <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                    <p class="filter-text">Gourmet</p>
+                                            </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                    <label><input type="checkbox"  name="2" class="filtros checkbox_animado"/>
+                                                    <span class="label-text"></span></label>
+                                                </div>
+                                                <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                    <p class="filter-text">Familiar</p>
+                                            </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                    <label><input type="checkbox"  name="3" class="filtros checkbox_animado"/>
+                                                    <span class="label-text"></span></label>
+                                                </div>
+                                                <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                    <p class="filter-text">Autoservicio</p>
+                                            </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                    <label><input type="checkbox"  name="4" class="filtros checkbox_animado"/>
+                                                    <span class="label-text"></span></label>
+                                                </div>
+                                                <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                    <p class="filter-text">Economico</p>
+                                            </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                    <label><input type="checkbox"  name="5" class="filtros checkbox_animado"/>
+                                                    <span class="label-text"></span></label>
+                                                </div>
+                                                <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                    <p class="filter-text">De Menú</p>
+                                            </div></li>
+                                        </ul>
+                                    </div>
+                                    <div class="filter-form-food col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                    <ul>
+                                        <li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <label><input type="checkbox"  name="6" class="filtros checkbox_animado"/>
+                                                <span class="label-text"></span></label>
+                                            </div>
+                                            <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <p class="filter-text">Vegetariano</p>
+                                        </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <label><input type="checkbox"  name="7" class="filtros checkbox_animado"/>
+                                                <span class="label-text"></span></label>
+                                            </div>
+                                            <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <p class="filter-text">De Lujo</p>
+                                        </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <label><input type="checkbox"  name="8" class="filtros checkbox_animado"/>
+                                                <span class="label-text"></span></label>
+                                            </div>
+                                            <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <p class="filter-text">Comida Rapida</p>
+                                        </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <label><input type="checkbox"  name="9" class="filtros checkbox_animado"/>
+                                                <span class="label-text"></span></label>
+                                            </div>
+                                            <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <p class="filter-text">Mexicano</p>
+                                        </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <label><input type="checkbox"  name="10" class="filtros checkbox_animado"/>
+                                                <span class="label-text"></span></label>
+                                            </div>
+                                            <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <p class="filter-text">Brasileño</p>
+                                        </div></li>
+                                    </ul>
+                                    </div>
+                                    <div class="filter-form-food col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                    <ul>
+                                        <li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <label><input type="checkbox"  name="11" class="filtros checkbox_animado"/>
+                                                <span class="label-text"></span></label>
+                                            </div>
+                                            <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <p class="filter-text">Italiano</p>
+                                        </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <label><input type="checkbox"  name="12" class="filtros checkbox_animado"/>
+                                                <span class="label-text"></span></label>
+                                            </div>
+                                            <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <p class="filter-text">Aleman</p>
+                                        </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <label><input type="checkbox"  name="13" class="filtros checkbox_animado"/>
+                                                <span class="label-text"></span></label>
+                                            </div>
+                                            <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <p class="filter-text">Frances</p>
+                                        </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <label><input type="checkbox"  name="14" class="filtros checkbox_animado"/>
+                                                <span class="label-text"></span></label>
+                                            </div>
+                                            <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <p class="filter-text">Chino</p>
+                                        </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <label><input type="checkbox"  name="15" class="filtros checkbox_animado"/>
+                                                <span class="label-text"></span></label>
+                                            </div>
+                                            <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <p class="filter-text">Japones</p>
+                                        </div></li>
+                                    </ul>
+                                    </div>
+                                    <div class="filter-form-food col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                    <ul>
+                                    <li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                            <label><input type="checkbox"  name="16" class="filtros checkbox_animado"/>
+                                            <span class="label-text"></span></label>
+                                        </div>
+                                        <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                            <p class="filter-text">Tradicional Español</p>
+                                    </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                            <label><input type="checkbox"  name="17" class="filtros checkbox_animado"/>
+                                            <span class="label-text"></span></label>
+                                        </div>
+                                        <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                            <p class="filter-text">Tapeo</p>
+                                    </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                            <label><input type="checkbox"  name="18" class="filtros checkbox_animado"/>
+                                            <span class="label-text"></span></label>
+                                        </div>
+                                        <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                            <p class="filter-text">5 Tenedores</p>
+                                    </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                            <label><input type="checkbox"  name="19" class="filtros checkbox_animado"/>
+                                            <span class="label-text"></span></label>
+                                        </div>
+                                        <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                            <p class="filter-text">4 Tenedores</p>
+                                    </div></li><li><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                            <label><input type="checkbox"  name="20" class="filtros checkbox_animado"/>
+                                            <span class="label-text"></span></label>
+                                        </div>
+                                        <div style="padding-left:0;" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                            <p class="filter-text">3 Tenedores</p>
+                                    </div></li>
+                                    </ul>
+                                    </div>
+                                    </div>
 
 
                                 </form>
@@ -232,6 +374,7 @@
                                                         <p class="local_nombre">{{ $plato->nombre_restaurante }}</p>
 
                                                     </div>
+                                                    </a>
                                                     <div class="search-extra-data col-xs-12 col-sm-7 col-md-7 col-lg-7">
                                                         @if (!Auth::guest())
                                                         <div class="product-star col-xs-2 col-sm-4 col-md-4 col-lg-4">
@@ -263,7 +406,7 @@
                                                     </div>
 
                                             </div>
-                                            </a>
+
                                             <div  class="search-button-gps col-xs-12 col-sm-2 col-md-2 col-lg-2">
                                                 <a href="{{$plato->urlNavigate}}" target="_blank" >@lang('search.navigate')</a>
                                             </div>
@@ -312,8 +455,7 @@
 
         <script>
 
-        var NUMERORESULTADOS = {{env('LIMIT')}},
-        offset = NUMERORESULTADOS;
+
         var busy = false;
         //cuando cargue el DOM
         $(function() {

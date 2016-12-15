@@ -6,7 +6,7 @@
   No hemos encontrado locales cercanos
 @else
 
-@foreach( $restaurantes_cercanos['results'] as $restaurante )
+@foreach( $entries as $restaurante )
 @if ( $restaurante['fichado'] == false )
 <div class="container">
 <div id="resultados_ajax"></div>
@@ -32,9 +32,13 @@
     </div>
 @endif
 @endforeach
-
+<div class="container" style="padding-left: 25%;">
+{!! $entries->setPath('buscarRestaurantesMasivoPaginacion')->appends(['lugar' => $lugar])->links() !!}
+</div>
 @endif
-
+<div style="width:100%; height:120px;">
+</div>
+</div>
 
 <script>
 function realizaProceso(placeid,nombre,direccion){

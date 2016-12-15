@@ -66,8 +66,6 @@ Route::group(['prefix' => 'accion'], function () {
     Route::post('votar', 'UserController@postVote')->name('accion.votar');
 });
 
-
-
 //rutas editar restaurantes user R
 Route::get('/editarRestaurante', 'RestauranteController@show');
 Route::post('/añadirMasPlatosRestaurante', 'PlatoController@crearPlatosRestauranteYaCreado');
@@ -85,7 +83,8 @@ Route::get('/verFichadosParaMasivo', 'RestauranteController@verFichadosParaMasiv
 Route::post('/seleccionRestaurantesMasivo', 'RestauranteController@seleccionRestaurantesMasivo');
 Route::post('/introducirMasivoPendienteBBDD', 'RestauranteController@introducirMasivoPendienteBBDD');
 Route::post('/buscarRestaurantesMasivo', 'RestauranteController@buscarRestaurantesMasivo');
-
+//paginacion
+Route::get('buscarRestaurantesMasivoPaginacion','RestauranteController@buscarRestaurantesMasivoPaginacion');
 
 //rutas de administracion
 Route::group(['prefix' => 'administracion'], function () {
