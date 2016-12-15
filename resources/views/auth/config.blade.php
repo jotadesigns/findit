@@ -5,7 +5,7 @@
 
                       <h3>@lang('profile.title_settings')</h3>
                   </div>
-    
+
 
 
                               <form id="send_conf"  class="" method="post">

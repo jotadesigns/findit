@@ -1,7 +1,7 @@
 <?php
 
  function getKey(){
-    $api_key = "AIzaSyBKnNdNpSrpOmbBRMUZ9p75Mfj6Dg86MMw";
+    $api_key = "AIzaSyDHUoXc0zOQxnS-9AQdQ6nmX08bElMSoIs";
     $GLOBALS['api_key'] = $api_key;
     return $api_key;
 }

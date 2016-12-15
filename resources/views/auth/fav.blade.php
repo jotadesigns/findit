@@ -4,7 +4,7 @@
 
         <h3>@lang('profile.title_favorites')</h3>
     </div>
-</div>
+
 
     @if (Auth::guest())
 
