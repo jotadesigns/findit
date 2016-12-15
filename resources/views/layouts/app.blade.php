@@ -19,7 +19,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600i,700,900" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
+		<script src="{{ asset('/js/cookies.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('/js/modernizr.custom.js') }}" type="text/javascript"></script>
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -112,66 +112,74 @@
 		</div>
 	</nav>
 	<div id="wrapper">
-        @yield('content')
+		<div id="wrapper">
+	        @yield('content')
 
-		<!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER -->
-		<footer>
-			<div class="container">
-				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
-				    <ul>
-						<li class="footer-title"><a class="link link--nukun" href="{{ url('/') }}">Fin<span>d</span> it</a></li>
-				    	<li><a href="{{ url('/').'/'.LaravelLocalization::getCurrentLocale().'/empresas' }}">Para empresas</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-				    <ul>
-						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-				    <ul>
-						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-					</ul>
-				</div>
-			</div>
-
-		</footer>
+			<!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER --><!-- FOOTER -->
+			<div id="overbox3">
+	    <div id="infobox3">
+	        <p>Esta web utiliza cookies para obtener datos estadísticos de la navegación de sus usuarios. Si continúas navegando consideramos que aceptas su uso.
+	        <a href="politica-privacidad.php">Más información</a>
+	        <a onclick="aceptar_cookies();" style="cursor:pointer;">X Cerrar</a></p>
+	    </div>
 	</div>
+			<footer>
+				<div class="container">
+					<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+					    <ul>
+							<li class="footer-title"><a class="link link--nukun" href="{{ url('/') }}">Fin<span>d</span> it</a></li>
+					    	<li><a href="#">¿Quienes somos?</a></li>
+					    	<li><a href="#">Blog Find It</a></li>
+					    	<li><a href="#">¡Trabaja en Find IT!</a></li>
+					    	<li><a href="#">Preguntas mas frecuentes</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+					    <ul>
+							<li class="footer-title"><a href="#">¿Necesitas ayuda?</a></li>
+					    	<li><a href="#">Condiciones legales</a></li>
+					    	<li><a href="#">Contacto</a></li>
+					    	<li><a href="#">Sugiere un restaurante</a></li>
+					    	<li><a href="#">Politica de cookies</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+					    <ul>
+							<li class="footer-title"><a href="#">Redes Sociales</a></li>
+					    	<li><a href="#">Síguenos en Instagram</a></li>
+					    	<li><a href="#">Síguenos en Twitter</a></li>
+					    	<li><a href="#">Síguenos en Facebook</a></li>
+					    	<li><a href="#">Síguenos en Pinterest</a></li>
+						</ul>
+					</div>
+				</div>
 
-    <!-- Scripts -->
-	<script>
-	jQuery(document).ready(function($) {
+			</footer>
+		</div>
 
-	  $(window).scroll(function() {
-	    var scrollPos = $(window).scrollTop(),
-	        navbar = $('.hdnav');
-			navbar2 = $('#perfil_leftgrid');
+	    <!-- Scripts -->
+		<script>
+		jQuery(document).ready(function($) {
 
-	    if (scrollPos > 1) {
-	      navbar.addClass('head-opaque');
-	    } else {
-	      navbar.removeClass('head-opaque');
-	    }
-		if (scrollPos > 60) {
-			 navbar2.addClass('profile-menu-open');
-		}else{
-			navbar2.removeClass('profile-menu-open');
-		}
-	  });
-	});
+		  $(window).scroll(function() {
+		    var scrollPos = $(window).scrollTop(),
+		        navbar = $('.hdnav');
+				navbar2 = $('#perfil_leftgrid');
 
-	</script>
+		    if (scrollPos > 1) {
+		      navbar.addClass('head-opaque');
+		    } else {
+		      navbar.removeClass('head-opaque');
+		    }
+			if (scrollPos > 60) {
+				 navbar2.addClass('profile-menu-open');
+			}else{
+				navbar2.removeClass('profile-menu-open');
+			}
+		  });
+		});
 
-</body>
-</html>
+		</script>
+
+	</body>
+	</html>

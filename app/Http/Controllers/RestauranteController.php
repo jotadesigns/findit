@@ -9,6 +9,10 @@ use App\Plato;
 use App\RestaurantePendiente;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Pagination\LengthAwarePaginator;
+
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -120,17 +124,40 @@ public function show()
  * @param  \App\Project $project
  * @return Response
  */
-public function edit(Request $request)
-{
-  $id_restaurante =$request->input('prueba');
-     $user= Auth::user()->id;
-    $restaurantes =Restaurante::where('restaurantes.id_restaurante', '=', $id_restaurante)->get();
-    $menus = Restaurante::where('restaurantes.id_restaurante', '=', $id_restaurante)
-  ->leftJoin('menus', 'menus.id_restaurante', '=', 'restaurantes.id_restaurante')
-  ->leftJoin('platos', 'platos.id_menu', '=', 'menus.id_menu')
-    ->get();
-    return view('restaurante.edit', compact('restaurantes','menus'));
-}
+ public function edit(Request $request)
+ {
+   $id_restaurante =$request->input('prueba');
+      $user= Auth::user()->id;
+     $restaurantes =Restaurante::where('restaurantes.id_restaurante', '=', $id_restaurante)->get();
+
+     $menus = Restaurante::where('restaurantes.id_restaurante', '=', $id_restaurante)
+   ->leftJoin('menus', 'menus.id_restaurante', '=', 'restaurantes.id_restaurante')
+   ->leftJoin('platos', 'platos.id_menu', '=', 'menus.id_menu')
+     ->get();
+ $tipos =DB::table('tipo_restaurante')->get();
+ $tipoConcreto =DB::table('tipo_restaurante')->where('id_tipo', $restaurantes['0']->tipo)->first();
+ $cuenta= Restaurante::where('restaurantes.id_restaurante', '=', $id_restaurante)
+ ->leftJoin('menus', 'menus.id_restaurante', '=', 'restaurantes.id_restaurante')
+ ->leftJoin('platos', 'platos.id_menu', '=', 'menus.id_menu')->count();
+
+
+ $manejadorREST = new Prest("https://maps.googleapis.com/maps/api/place/details/json?placeid=".$id_restaurante."&key=".getKey());
+ $datos_restaurante = $manejadorREST->realizarPeticion();
+ $datos_imagen[0]=url('/assets/imagenes/cross.png');
+ $cuentaFotos=0;
+ if(isset($datos_restaurante['result']['photos'])){
+   $cuentaFotos= count($datos_restaurante['result']['photos']);
+
+   for($i=0;$i<$cuentaFotos;$i++){
+     $manejadorREST->setUrl("https://maps.googleapis.com/maps/api/place/photo?maxwidth=150&maxheight=100&photoreference=".$datos_restaurante["result"]["photos"][$i]["photo_reference"]."&key=".getKey());
+     $datos_imagen[$i] = $manejadorREST->getUrl();
+
+   }
+ }
+
+
+     return view('restaurante.edit', compact('restaurantes','menus','tipos','tipoConcreto','cuenta','cuentaFotos','datos_imagen'));
+ }
 
 /**
  * Update the specified resource in storage.
@@ -138,48 +165,56 @@ public function edit(Request $request)
  * @param  \App\Project $project
  * @return Response
  */
-public function update(Request $request)
-{
-  $datosRestaurante = $request->input('Datos');
-  $datosPlatos = $request->except('Datos');
+ public function update(Request $request)
+ {
+   $datosRestaurante = $request->input('Datos');
+   $datosPlatos = $request->except('Datos');
 
-$id_restaurante = $request->input('id_restaurante');
-if($datosRestaurante['Domicilio']=="on"){
-  $datosRestaurante['Domicilio']=1;
-};
-if($datosRestaurante['Terraza']=="on"){
-  $datosRestaurante['Terraza']=1;
-};
-if($datosRestaurante['Parking']=="on"){
-  $datosRestaurante['Parking']=1;
-};
-if($datosRestaurante['Eventos']=="on"){
-  $datosRestaurante['Eventos']=1;
-};
+ $id_restaurante = $request->input('id_restaurante');
+ if($datosRestaurante['Domicilio']=="on"){
+   $datosRestaurante['Domicilio']=1;
+ };
+ if($datosRestaurante['Terraza']=="on"){
+   $datosRestaurante['Terraza']=1;
+ };
+ if($datosRestaurante['Parking']=="on"){
+   $datosRestaurante['Parking']=1;
+ };
+ if($datosRestaurante['Eventos']=="on"){
+   $datosRestaurante['Eventos']=1;
+ };
 
-  Restaurante::where('restaurantes.id_restaurante','=', $id_restaurante)
-            ->update(['tipo' => $datosRestaurante['TipoRestaurante'],
-          'domicilio' =>$datosRestaurante['Domicilio'],
-          'terraza' => $datosRestaurante['Terraza'],
-          'parking' =>$datosRestaurante['Parking'],
-          'eventos_deportivos' => $datosRestaurante['Eventos'],
-  ]);
+   Restaurante::where('restaurantes.id_restaurante','=', $id_restaurante)
+             ->update(['tipo' => $datosRestaurante['TipoRestaurante'],
+           'domicilio' =>$datosRestaurante['Domicilio'],
+           'terraza' => $datosRestaurante['Terraza'],
+           'parking' =>$datosRestaurante['Parking'],
+           'eventos_deportivos' => $datosRestaurante['Eventos'],
+   ]);
 
-  foreach($datosPlatos as $id_plato => $arrayValores){
-      if (is_array($arrayValores)){
+   foreach($datosPlatos as $id_plato => $arrayValores){
+       if (is_array($arrayValores)){
+         if(isset($arrayValores['estrella'])){
+           $arrayValores['estrella']=1;
+         }else{
+              $arrayValores['estrella']=0;
+         }
 
-          foreach($arrayValores as $columna => $valor){
-              plato::where('platos.id_plato','=', $id_plato)->update([$columna =>$valor]);
-        }
-
-      }
-}
+           foreach($arrayValores as $columna => $valor){
 
 
-return redirect()->action('HomeController@index');
-}
 
-/**
+               plato::where('platos.id_plato','=', $id_plato)->update([$columna =>$valor]);
+         }
+
+       }
+   }
+
+
+
+ return redirect()->action('HomeController@index');
+ }
+ /**
  * Remove the specified resource from storage.
  *
  * @param  \App\Project $project
@@ -236,38 +271,60 @@ return redirect()->action('HomeController@index');
 
  }
  public function buscarRestaurantesMasivo(Request $request)
- {
+  {
 
-   $lugar = $request->input('busqueda');
-     $radio = $request->input('radio');
-     $contador= 0;
+    $lugar = $request->input('busqueda');
+      $radio = $request->input('radio');
+      $contador= 0;
 
-     $manejadorREST = new Prest("https://maps.googleapis.com/maps/api/place/textsearch/json?query=".urlencode($_POST["busqueda"])."&key=".getKey());
-                $restaurantes_cercanos = $manejadorREST->realizarPeticion();
-                 $coordenadas = $restaurantes_cercanos["results"][0]["geometry"]["location"];
-                 $lat  =  $coordenadas["lat"];
-                 $lng =  $coordenadas["lng"];
+      $manejadorREST = new Prest("https://maps.googleapis.com/maps/api/place/textsearch/json?query=".urlencode($_POST["busqueda"])."&key=".getKey());
+                 $restaurantes_cercanos = $manejadorREST->realizarPeticion();
+                  $coordenadas = $restaurantes_cercanos["results"][0]["geometry"]["location"];
+                  $lat  =  $coordenadas["lat"];
+                  $lng =  $coordenadas["lng"];
+
+                  if(isset($restaurantes_cercanos["next_page_token"])){
+                                     $peticion = new Prest("https://maps.googleapis.com/maps/api/place/textsearch/json?query=".urlencode($_POST["busqueda"])."&key=".getKey()."&pagetoken=".$restaurantes_cercanos["next_page_token"]);
+
+
+
+                                      $datosRestauranteTexto2 = $manejadorREST->realizarPeticion();
+                                      foreach ($datosRestauranteTexto2['results'] as  $value) {
+                                      array_push($restaurantes_cercanos['results'],$value);
+                                      }
+
+                                 }
+
+                   //comprobamos si ya esta activo ese sito en la bd
+                  foreach ($restaurantes_cercanos["results"] as $restaurante_cercano){
 
                   //comprobamos si ya esta activo ese sito en la bd
-                 foreach ($restaurantes_cercanos["results"] as $restaurante_cercano){
 
-                 //comprobamos si ya esta activo ese sito en la bd
+                  $prueba =  RestaurantePendiente::where('id_restaurante', '=', $restaurante_cercano['place_id'])->get();
+                  $prueba2 =  Restaurante::where('id_restaurante', '=', $restaurante_cercano['place_id'])->get();
 
-                 $prueba =  RestaurantePendiente::where('id_restaurante', '=', $restaurante_cercano['place_id'])->get();
-                 $prueba2 =  Restaurante::where('id_restaurante', '=', $restaurante_cercano['place_id'])->get();
-
-                 if($prueba->isEmpty() && $prueba2->isEmpty() ){
-                   $restaurantes_cercanos["results"][$contador]['fichado'] = false;
-                 }else {
-                   $restaurantes_cercanos["results"][$contador]['fichado']= true;
-                 }
-                 $contador++;
-                     }
+                  if($prueba->isEmpty() && $prueba2->isEmpty() ){
+                    $restaurantes_cercanos["results"][$contador]['fichado'] = false;
+                  }else {
+                    $restaurantes_cercanos["results"][$contador]['fichado']= true;
+                  }
+                  $contador++;
+                      }
 
 
-     return view('administracion.busquedaRestaurantesM', compact('restaurantes_cercanos'));
+$currentPage = LengthAwarePaginator::resolveCurrentPage();
+$col = new Collection($restaurantes_cercanos["results"]);
 
- }
+$perPage = 5;
+$currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+$entries = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
+
+
+
+
+      return view('administracion.busquedaRestaurantesM', compact('entries','restaurantes_cercanos','lugar'));
+
+  }
 
 
  public function ficharRestaurante(Request $request)
@@ -298,18 +355,34 @@ return redirect()->action('HomeController@index');
      $placeId = $request->input('id_restaurante');
      $user= Auth::user()->id;
      $manejadorREST = new Prest("https://maps.googleapis.com/maps/api/place/details/json?placeid=".$placeId."&key=".getKey());
+
      $datos_restaurante = $manejadorREST->realizarPeticion();
 
+     $tipos =DB::table('tipo_restaurante')->get();
+     $datos_imagen[0]=url('/assets/imagenes/cross.png');
+     $cuentaFotos=0;
+     if(isset($datos_restaurante['result']['photos'])){
+       $cuentaFotos= count($datos_restaurante['result']['photos']);
+
+       for($i=0;$i<$cuentaFotos;$i++){
+         $manejadorREST->setUrl("https://maps.googleapis.com/maps/api/place/photo?maxwidth=150&maxheight=100&photoreference=".$datos_restaurante["result"]["photos"][$i]["photo_reference"]."&key=".getKey());
+         $datos_imagen[$i] = $manejadorREST->getUrl();
+
+       }
+     }
 
 
 
- return view('administracion.introducirMenu', compact('datos_restaurante', 'placeId'));
+
+
+ return view('administracion.introducirMenu', compact('datos_restaurante', 'placeId','tipos','datos_imagen','cuentaFotos'));
  }
 
  public function introducirPendienteBBDD(Request $request)
  {
 
    $datosRestaurante = $request->input('Datos');
+$indice_foto="";
 
    $datosPlatos = $request->except('Datos');
 
@@ -322,12 +395,21 @@ return redirect()->action('HomeController@index');
    if($datosRestaurante['Parking']=="on"){
      $datosRestaurante['Parking']=1;
    };
+
    if($datosRestaurante['Eventos']=="on"){
      $datosRestaurante['Eventos']=1;
    };
+
  $imagen = $request->get('imagen');
      $user= Auth::user()->id;
-   Restaurante::insert(['id_restaurante'=>$datosRestaurante['id_restaurante'] , 'id_admin' =>$user , 'lat' => $datosRestaurante['lat'], 'lng' => $datosRestaurante['lng'], 'nombre_restaurante' => $datosRestaurante['NombreRestaurante'], 'tipo' =>$datosRestaurante['TipoRestaurante'] ,'domicilio' => $datosRestaurante['Domicilio'] ,
+     foreach ($datosRestaurante as $key => $value) {
+       if(is_numeric($key)){
+          $indice_foto=$key;
+
+       }
+
+     }
+   Restaurante::insert(['id_restaurante'=>$datosRestaurante['id_restaurante'] ,'indice_foto'=>$indice_foto,  'lat' => $datosRestaurante['lat'], 'lng' => $datosRestaurante['lng'], 'nombre_restaurante' => $datosRestaurante['NombreRestaurante'], 'tipo' =>$datosRestaurante['TipoRestaurante'] ,'domicilio' => $datosRestaurante['Domicilio'] ,
    'terraza' => $datosRestaurante['Terraza'] ,'parking' => $datosRestaurante['Parking'],'eventos_deportivos' => $datosRestaurante['Eventos']]);
    Menu::insert(['id_restaurante'=>$datosRestaurante['id_restaurante']]);
    RestaurantePendiente::where(['id_restaurante'=>$datosRestaurante['id_restaurante']])->delete();
@@ -335,7 +417,13 @@ return redirect()->action('HomeController@index');
 
    foreach($datosPlatos as $id_plato => $arrayValores){
        if (is_array($arrayValores)){
-     Plato::insert(['id_menu' => $idMenu->id_menu, 'nombre' => $arrayValores['nombre'], 'precio' => $arrayValores['precio'], 'categoria_plato' => $arrayValores['categoria_plato'], 'icono' => $arrayValores['imagen']]);
+         if(isset($arrayValores['estrella'])){
+           $arrayValores['estrella']=1;
+         }else{
+              $arrayValores['estrella']=0;
+         }
+
+     Plato::insert(['id_menu' => $idMenu->id_menu, 'estrella' => $arrayValores['estrella'], 'nombre' => $arrayValores['nombre'], 'precio' => $arrayValores['precio'], 'categoria_plato' => $arrayValores['categoria_plato'], 'icono' => $arrayValores['imagen']]);
 
        }
  }
@@ -366,11 +454,11 @@ return redirect()->action('HomeController@index');
        }
 
            }
+     $tipos =DB::table('tipo_restaurante')->get();
 
 
 
-
- return view('administracion.introducirMenuMasivo', compact('datos_restaurante'));
+ return view('administracion.IntroducirMenuMasivo', compact('datos_restaurante','tipos'));
  }
 
  public function introducirMasivoPendienteBBDD(Request $request)
@@ -397,7 +485,7 @@ return redirect()->action('HomeController@index');
    $restauranteConcreto['Eventos']=1;
    };
 
-   Restaurante::insert(['id_restaurante'=>$restauranteConcreto['id_restaurante'] , 'id_admin' =>$user , 'lat' => $restauranteConcreto['lat'], 'lng' => $restauranteConcreto['lng'], 'nombre_restaurante' => $restauranteConcreto['NombreRestaurante'], 'tipo' =>$restauranteConcreto['TipoRestaurante'] ,'domicilio' => $restauranteConcreto['Domicilio'] ,
+   Restaurante::insert(['id_restaurante'=>$restauranteConcreto['id_restaurante'] , 'lat' => $restauranteConcreto['lat'], 'lng' => $restauranteConcreto['lng'], 'nombre_restaurante' => $restauranteConcreto['NombreRestaurante'], 'tipo' =>$restauranteConcreto['TipoRestaurante'] ,'domicilio' => $restauranteConcreto['Domicilio'] ,
    'terraza' => $restauranteConcreto['Terraza'] ,'parking' => $restauranteConcreto['Parking'],'eventos_deportivos' => $restauranteConcreto['Eventos']]);
    Menu::insert(['id_restaurante'=>$restauranteConcreto['id_restaurante']]);
    RestaurantePendiente::where(['id_restaurante'=>$restauranteConcreto['id_restaurante']])->delete();
@@ -411,10 +499,15 @@ return redirect()->action('HomeController@index');
    foreach($datosPlatos as $id_plato => $arrayValores){
 
        if (is_array($arrayValores)){
+         if(isset($arrayValores['estrella'])){
+           $arrayValores['estrella']=1;
+         }else{
+              $arrayValores['estrella']=0;
+         }
          foreach($idMenu as $idMenuIndividual){
 
 
-           Plato::insert(['id_menu' => $idMenuIndividual->id_menu, 'nombre' => $arrayValores['nombre'], 'precio' => $arrayValores['precio'], 'categoria_plato' => $arrayValores['categoria_plato'], 'icono' => $arrayValores['imagen']]);
+           Plato::insert(['id_menu' => $idMenuIndividual->id_menu, 'estrella' => $arrayValores['estrella'], 'nombre' => $arrayValores['nombre'], 'precio' => $arrayValores['precio'], 'categoria_plato' => $arrayValores['categoria_plato'], 'icono' => $arrayValores['imagen']]);
 
          }
 
@@ -423,6 +516,61 @@ return redirect()->action('HomeController@index');
  return view('administracion.ingreso');
  }
 
+ public function buscarRestaurantesMasivoPaginacion(Request $request){
+   $lugar = $request->get('lugar');
+     $page = $request->get('page');
+     $contador= 0;
 
+     $manejadorREST = new Prest("https://maps.googleapis.com/maps/api/place/textsearch/json?query=".$lugar."&key=".getKey());
+                $restaurantes_cercanos = $manejadorREST->realizarPeticion();
+
+                 $coordenadas = $restaurantes_cercanos["results"][0]["geometry"]["location"];
+                 $lat  =  $coordenadas["lat"];
+                 $lng =  $coordenadas["lng"];
+
+                 if(isset($restaurantes_cercanos["next_page_token"])){
+                                    $peticion = new Prest("https://maps.googleapis.com/maps/api/place/textsearch/json?query=".$lugar."&key=".getKey()."&pagetoken=".$restaurantes_cercanos["next_page_token"]);
+
+
+
+
+                                                                          $datosRestauranteTexto2 = $manejadorREST->realizarPeticion();
+                                                                          foreach ($datosRestauranteTexto2['results'] as  $value) {
+                                                                          array_push($restaurantes_cercanos['results'],$value);
+                                                                          }
+
+                                }
+
+                  //comprobamos si ya esta activo ese sito en la bd
+                 foreach ($restaurantes_cercanos["results"] as $restaurante_cercano){
+
+                 //comprobamos si ya esta activo ese sito en la bd
+
+                 $prueba =  RestaurantePendiente::where('id_restaurante', '=', $restaurante_cercano['place_id'])->get();
+                 $prueba2 =  Restaurante::where('id_restaurante', '=', $restaurante_cercano['place_id'])->get();
+
+                 if($prueba->isEmpty() && $prueba2->isEmpty() ){
+                   $restaurantes_cercanos["results"][$contador]['fichado'] = false;
+                 }else {
+                   $restaurantes_cercanos["results"][$contador]['fichado']= true;
+                 }
+                 $contador++;
+                     }
+
+
+ $currentPage = $page;
+ $col = new Collection($restaurantes_cercanos["results"]);
+
+ $perPage = 5;
+ $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+ $entries = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
+
+
+
+
+     return view('administracion.busquedaRestaurantesM', compact('entries','restaurantes_cercanos','lugar'));
+
+
+ }
 
  }
