@@ -173,33 +173,55 @@
 .mas_resultados{
 
 }
+.pendientes-data{
+  min-height: 82px;
+  font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+}
 .panelResultados{
   margin-top: 10px;
-margin-bottom: 10px;
-
-border: 2px solid rgb(172, 172, 172);
-border-radius: 9px;
--webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  margin-bottom: 10px;
+  border: 1px solid rgb(88, 148, 66);
+  border-radius: 9px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  padding: 10px 15px;
 }
 .panelResultadosFichado{
 
-background-color: rgb(209, 245, 202);
-
+  background-color: rgb(209, 245, 202);
 }
 .panelResultadosNoFichado{
-
-background-color: #c6e0fb;
-
+  background-color: #c6e0fb;
 }
 
 .tituloResultado{
-  font-size: 21px;
+  font-size: 19px;
   font-weight: bold;
+  text-align: center;
+  margin: 15px;
+  color: #376327;
 }
 .direccionResultado{
   font-size: 15px;
-
+  color: #5f5d5d;
+  margin-bottom:0;
+}
+.pendientes-admin{
+  float: right;
+  margin-bottom: 0;
+  color: #ce1212;
+  margin-top: 10px;
+}
+.pendientes-admin span{
+  text-transform: uppercase;
+}
+.panelResultadosNoFichado .label-text:before{
+  font-size: 25px;
+  margin: auto;
+}
+.panelResultadosNoFichado .boton_login{
+  margin-top: 10px;
 }
 .cartaMenu{
   background-color: #f1f1f1;

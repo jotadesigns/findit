@@ -32,6 +32,7 @@ $datos_restaurante = $manejadorREST->realizarPeticion();
 $restaurante = DB::table('restaurantes')
 ->join('menus', 'menus.id_restaurante', '=', 'restaurantes.id_restaurante')
 ->join('platos', 'platos.id_menu', '=', 'menus.id_menu')
+->join('tipo_restaurante', 'tipo_restaurante.id_tipo' , '=', 'restaurantes.tipo')
 ->where('restaurantes.id_restaurante', '=', $request->placeid)
 ->get();
 
@@ -59,9 +60,27 @@ if(isset($restaurante[0]->indice_foto)){
   }
 }
 
+//obtenemos los datos meteorologicos
+$manejadorREST = new Prest("http://api.wunderground.com/api/".getWeatherKey()."/conditions/forecast/alert/q/".$datos_restaurante['result']['geometry']['location']['lat'].",".$datos_restaurante['result']['geometry']['location']['lng'].".json");
+$datos_meteorologicos = $manejadorREST->realizarPeticion();
+
+//DATOS PROCESADOS PARA VISTA //DATOS PROCESADOS PARA VISTA //DATOS PROCESADOS PARA VISTA
+//obtencion del precio como string
+if(isset($datos_restaurante["result"]["price_level"])){
+  $datos_restaurante["result"]["price_level"] = getStringPrice($datos_restaurante["result"]["price_level"]);
+}
+//obtencion de los servicios ofrecidos como array
+$servicios = [];
+if(isset($restaurante[0])){
+  if($restaurante[0]->domicilio === 1) array_push($servicios,"Servicio a domicilio");
+  if($restaurante[0]->terraza === 1) array_push($servicios,"Terraza");
+  if($restaurante[0]->parking === 1) array_push($servicios,"Parking");
+  if($restaurante[0]->eventos_deportivos === 1) array_push($servicios,"Eventos deportivos");
+  $restaurante[0]->servicios = $servicios;
+}
 
 //RETORNAMOS UN JSON CON LA VISTA RENDERIZADA
-$returnHTML = view('restaurante.index')->with(array('restaurante'=> $restaurante, 'datos_restaurante' => $datos_restaurante, 'datos_imagen' => $datos_imagen))->render();
+$returnHTML = view('restaurante.index')->with(array('restaurante'=> $restaurante, 'datos_restaurante' => $datos_restaurante, 'datos_imagen' => $datos_imagen,'datos_meteorologicos' => $datos_meteorologicos))->render();
   return response()->json( array('success' => true, 'html'=>$returnHTML) );
 }
 
@@ -266,10 +285,11 @@ return redirect()->action('HomeController@index');
 
  public function verFichados()
  {
-     $user= Auth::user()->id;
-   $pendientes = RestaurantePendiente::where('id_admin', '=', $user)->get();
-
- return view('administracion.fichados', compact('pendientes'));
+   $user= Auth::user()->id;
+   $pendientes = RestaurantePendiente::where('id_admin', '=', $user)
+   ->join('users', 'users.id', '=', 'restaurante_pendientes.id_admin')
+   ->get();
+   return view('administracion.fichados', compact('pendientes'));
  }
 
 

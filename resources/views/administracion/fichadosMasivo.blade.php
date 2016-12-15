@@ -13,22 +13,28 @@
   No hemos encontrado locales cercanos
 @else
 <div class="container">
-<form action="{{ url('/seleccionRestaurantesMasivo')}}" method="POST">
-@foreach( $pendientes as $restaurante )
-<div class="panelResultados panelResultadosNoFichado">
-  <p class="tituloResultado">{{ $restaurante['nombre'] }}</p>
-  <p class="direccionResultado">{{ $restaurante['direccion'] }}</p>
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="hidden" name="{{ $restaurante['id_restaurante'] }}[id_restaurante]" value="{{ $restaurante['id_restaurante'] }}">
-<input type="checkbox" class="form-control" name="{{ $restaurante['id_restaurante'] }}[seleccion]">
-</div>
 
+  <form action="{{ url('/seleccionRestaurantesMasivo')}}" method="POST">
 
-@endforeach
-  <input type="submit" value="INTRODUCIR MENU"  class="btn btn-primary">
-
-</form>
+  @foreach( $pendientes as $restaurante )
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    <div class="panelResultados panelResultadosNoFichado">
+      <div class="pendientes-data">
+        <p class="tituloResultado">{{ $restaurante['nombre'] }}</p>
+        <p class="direccionResultado">{{ $restaurante['direccion'] }}</p>
+      </div>
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <input type="hidden" name="{{ $restaurante['id_restaurante'] }}[id_restaurante]" value="{{ $restaurante['id_restaurante'] }}">
+      <label style="text-align:center;display:block;margin-bottom:0;margin-top:5px;"><input type="checkbox" name="{{ $restaurante['id_restaurante'] }}[seleccion]" class="checkbox_animado">
+              <span class="label-text"></span>
+      </label>
+    </div>
   </div>
+  @endforeach
+
+  <input type="submit" value="INTRODUCIR MENU"  class="boton_login">
+  </form>
+</div>
 @endif
 
 

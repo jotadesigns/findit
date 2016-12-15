@@ -66,7 +66,7 @@
     min-height: 100%;
     position: relative;
     padding-top: 60px;
-	background-color: #b73a3a;
+	background-color: rgb(77, 87, 197);
 
 }
 h4{
@@ -686,8 +686,24 @@ footer .link--nukun span{
 }
 #form_empresa{
     margin-top: 30px;
-    background-color: #e2e2e2;
 }
+.full-btn-empresas{
+	width:100%;
+	margin-top: 20px;
+}
+.form_empresa_text_desc{
+		font-family: 'Raleway', sans-serif;
+		font-size: 18px;
+		color: #cf0c03;
+		font-weight: 600;
+		margin-top: 10px;;
+}
+.empresa-input{
+	width: 100%;
+	min-height: 30px;
+	padding: 10px;
+}
+
 #form_empresa_titular{
     text-align: center;
     margin-top: 50px;
@@ -979,6 +995,16 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
 .bussiness-button-nopadding{
 	padding-right: 0;
 }
+#titular_restaurante{
+	font-size: 27px;
+	letter-spacing: 1.2px;
+	font-family: 'Raleway', sans-serif;
+	margin-bottom: 3px;
+}
+#form_empresa_titular p{
+	font-size: 17px;
+	font-family: 'Raleway', sans-serif;
+}
 /* RESTAURANTE DETALLES */
 #imagen_restaurante{
   background: no-repeat center;
@@ -1071,6 +1097,94 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
     text-align: center;
     height: 90px;
 }
+.menu_restaurante-nopadding{
+	padding: 0;
+	margin-left: 0;
+	width: 100%;
+}
+#restaurant_weather_extrainfo{
+	margin-top: 30px;
+}
+#restaurant_weather_extrainfo h6{
+	background-color: #3668b1;
+	padding: 10px;
+	color: #fff;
+	margin-bottom: 0;
+	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+}
+#restaurant_weather_container{
+	background-color: rgba(72, 117, 185, 0.12);
+	color: #337ab7;
+	text-align: center;
+	padding: 10px;
+}
+
+#restaurant_weather_container img{
+	margin-left: 25px;
+	margin-right: 25px;
+}
+.weather_display_location{
+	font-size: 19px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	padding-top: 0;
+	margin-bottom: 0;
+}
+.weather_display_feelslike{
+	font-size: 21px;
+	font-weight: 400;
+	margin-bottom: 0;
+}
+.weather_display_feelslike span{
+	font-size: 13px;
+}
+#restaurant_extrainfo{
+	margin-top: 20px;
+}
+#restaurant_extrainfo-content p{
+	font-size: 19px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	color: #3668b1;
+	margin-bottom: 0;
+}
+.restaurant_extrainfo-opener{
+	cursor: pointer;
+}
+.restaurant_extrainfo-closed{
+	display: none;
+}
+.restaurant_extrainfo-open{
+	display: block;
+}
+.restaurant_extrainfo-closed article:first-child{
+	margin-top: 20px;
+}
+.restaurant_extrainfo-closed article{
+	margin-top: 10px;
+	border: 1px solid rgba(48, 123, 187, 0.26);
+	padding: 20px;
+}
+.restaurant_extrainfo-desc{
+	font-size: 14px!important;
+	color: black!important;
+	text-align: center;
+}
+.restaurant_extrainfo-title{
+	text-align: center;
+	margin-bottom: 15px!important;
+}
+#restaurant_extrainfo-content p i {
+	float: right;
+	padding-right: 20px;
+}
+#restaurant_extrainfo-content{
+	padding: 20px;
+	border: 1px solid rgba(48, 123, 187, 0.26);
+}
+
 
 .iconoestado_restaurante{
      color: #24c324;
@@ -1097,13 +1211,16 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
 
 }
 .descmenu_restaurante{
-        font-size: 17px;
+        font-size: 17px!important;
     letter-spacing: 1.3px;
     font-family: 'Raleway', sans-serif;
     color:white;
     margin-bottom: 0px;
     margin-top: 6px;
     text-transform: uppercase;
+}
+.descmenu_restaurante:hover{
+	text-decoration: none;
 }
 #letreromenu_restaurante{
     font-size: 20px;
@@ -1123,7 +1240,7 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
 }
 .restaurant_comment{
 	border: 1px solid rgba(48, 123, 187, 0.26);
-	margin: 7px;
+	margin: 7px 0;
 	padding: 20px;
 	position: relative;
 }
@@ -1181,7 +1298,7 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
 	color: #337ab7;
 	letter-spacing: 1.3px;
 	text-transform: uppercase;
-	margin-top: 10px;
+	margin-top: 50px;
 	margin-bottom: 40px;
 	text-align: center;
 }
@@ -1408,7 +1525,7 @@ background-color: rgba(52, 70, 120, 0.93)!important;
  transition: all 0.2s ease-in-out;
 }
 #perfil_leftgrid ul li:first-child{
-	border-right: 10px solid #b73a3a;
+	border-right: 10px solid rgb(77, 87, 197);
 	padding: 27px 30px;
 }
 #perfil_leftgrid ul li:last-child{
@@ -1423,7 +1540,6 @@ background-color: rgba(52, 70, 120, 0.93)!important;
 	margin: 0;
 	font-family: 'Raleway', sans-serif;
 	font-weight: 600;
-
 }
 .perfil_bread{
 	padding: 50px 0;
@@ -1637,7 +1753,170 @@ margin-bottom: 100px;
 	margin-bottom: 75px;
 }
 
+/* LOGIN FORM *//* LOGIN FORM *//* LOGIN FORM *//* LOGIN FORM */
 
+.login-cont{
+	box-shadow: 0 16px 44px rgba(0,0,0,.21);
+	margin-top: 50px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding: 30px 50px;
+	background-color: #f3f2f2;
+}
+.login-input{
+	display: block;
+    width: 100%;
+    height: 43px;
+    padding: 8px 15px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #4e4e56;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #c5c5ca;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -moz-transition: border-color ease-in-out .15s,-moz-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		margin-top:20px;
+}
+.boton_login{
+    width: 100%;
+    font-size: 14px!important;
+    letter-spacing: 1.3px;
+    font-family: 'Raleway', sans-serif!important;
+    background-color: #589442!important;
+    border-color: #4e823a!important;
+		border:1px solid transparent;
+    height: 40px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding-left: 0px!important;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		color:#fff;
+		margin-bottom: 15px;
+}
+.boton_login:hover{
+    background-color: #24610f!important;
+}
+.login-cont h3{
+	text-align: center;
+	font-weight: 600;
+	margin-bottom:30px;
+	color: #676565;
+}
+.bar-separator{
+	position:relative;
+	text-align: center;
+	padding: 16px 0;
+}
+.bar-separator:before{
+	background: #d4d4d7;
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 0;
+}
+.bar-separator span{
+	display: inline-block;
+    background:  #f3f2f2;
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.register-termsOfUse{
+	color: #337ab7;
+	font-family: 'Raleway', sans-serif!important;
+	font-size: 13px;
+	width: 90%;
+	margin: auto;
+	text-align: center;
+}
+.register-termsOfUse a{
+	text-decoration: underline;
+
+}
+.connectionFacebook{
+    color: #4e4e56;
+}
+.connectionFacebook-loginButton{
+	font-size: 12px;
+    display: block;
+    margin: 15px 0;
+    padding-left: 40px;
+    height: 40px;
+    width: 100%;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #34518e;
+    background-position: 17px center;
+    outline: 0;
+    border-radius: 4px;
+		position: relative;
+}
+
+.connectionFacebook-loginContent{
+	position: relative;
+    display: block;
+    line-height: 39px;
+    padding: 0 25px;
+    background-color: #3f5fa4;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-bottom-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius-topright: 4px;
+    -moz-background-clip: padding;
+    border-top-right-radius: 4px;
+    background-clip: padding-box;
+
+	text-align: center;
+}
+.connectionFacebook-loginText{
+	margin-left: -35px;
+	letter-spacing: 1.3px;
+	font-family: 'Raleway', sans-serif!important;
+	font-size: 14px;
+}
+.connectionFacebook a:hover{
+	color: #fff;
+	text-decoration: none;
+}
+.login-facebook-icon{
+	position: absolute;
+	left:0;
+	font-size: 22px;
+	left:15px;
+	top:5px;
+}
+.connectionFacebook div{
+	padding-left: 15px;
+	color: #7a7a7b;
+}
+.connectionFacebook-beneficits {
+	font-size: 16px;
+	margin-right: 15px;
+	font-family: 'Raleway', sans-serif!important;
+	font-size: 14px;
+}
 
 /*MEDIAS*//*MEDIAS*//*MEDIAS*//*MEDIAS*//*MEDIAS*//*MEDIAS*/
 
@@ -1803,7 +2082,7 @@ margin-bottom: 100px;
 		font-size: 20px;
 	}
 	.descmenu_restaurante{
-		font-size: 12px;
+		font-size: 12px!important;
 		margin-top: -5px;
 	}
 	.menunav_restaurante_no-padding{
@@ -1815,8 +2094,6 @@ margin-bottom: 100px;
 	.menu_restaurante-nopadding{
 		width: 100%;
 		margin-left: 0;
-		padding-left: 10px!important;
-		padding-right: 10px!important;
 	}
 	#imagen_restaurante {
 		padding: 100px 10px 100px 10px;
@@ -1832,11 +2109,23 @@ margin-bottom: 100px;
 		padding-top: 5px;
 		padding-bottom: 5px;
 	}
+
 	.overlay ul{
 		margin-top: 10px!important;
 	}
 	.platoright_restaurante{
 		font-size: 15px;
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+	.weather_display_location {
+		font-size: 17px;
+	}
+	#restaurant_weather_extrainfo h6{
+		font-size: 16px;
+	}
+	#restaurant_weather_extrainfo {
+		padding: 0;
 	}
 	.platoleft_restaurante{
 		font-size: 15px;
@@ -1854,6 +2143,7 @@ margin-bottom: 100px;
 	}
 	#menu_restaurante{
 		padding: 0;
+		margin-bottom: 20px;
 	}
 	.restaurant_comment_header div:first-child img{
 		width: 35px!important;
@@ -1894,5 +2184,24 @@ margin-bottom: 100px;
 	#restaurant_comments_global h6{
 		margin-bottom: 25px;
 		margin-top: 30px;
+		font-size: 17px;
+	}
+	#restaurant_comments_global{
+		padding-left: 0;
+		padding-right: 0;
+
+	}
+	#restaurant_extrainfo{
+		padding: 0;
+	}
+	#restaurant_extrainfo-content p i{
+		padding-right: 0;
+	}
+	#restaurant_extrainfo-content p{
+		font-size: 17px;
+	}
+	.restaurant_extrainfo-closed article{
+		border: none;
+		padding: 15px;
 	}
 }

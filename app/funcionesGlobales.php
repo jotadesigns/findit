@@ -64,4 +64,29 @@ function langToZone($lang){
     }
     return $zone;
 }
+//funcion para sacar el nivel de precio de un restaurante
+function getStringPrice($price){
+  $resultado = "";
+  switch ($price) {
+    case 0:
+      $resultado = "gratis";
+      break;
+    case 1:
+      $resultado = "barato";
+      break;
+    case 2:
+      $resultado = "moderado";
+      break;
+    case 3:
+      $resultado = "caro";
+      break;
+    case 4:
+      $resultado = "muy caro";
+      break;
+    default:
+      $resultado = "desconocido";
+      break;
+  }
+  return $resultado;
+}
 ?>

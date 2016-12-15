@@ -48,30 +48,17 @@ No tenemos más información de ese restaurante
 
                                             @if(isset($datos_restaurante["result"]["opening_hours"]["open_now"]))
 
-
-
                                             @if($datos_restaurante["result"]["opening_hours"]["open_now"]===true)
-
                                             <i class="iconoestado_restaurante ion-ionic"></i>
-
                                             <p class="descmenu_restaurante">abierto</p>
-
                                             @else
-
                                              <i class="iconoestado_restaurante_cerrado ion-ionic"></i>
-
                                             <p class="descmenu_restaurante">cerrado</p>
-
                                             @endif
 
-
-
                                             @else
-
                                             <i class="iconoestado_restaurante_desconocido ion-ionic"></i>
-
                                             <p class="descmenu_restaurante">desconocido</p>
-
                                             @endif
 
                                         </li>
@@ -81,10 +68,10 @@ No tenemos más información de ese restaurante
                                     <div class="cuadromenu_restaurante col-xs-4 col-sm-4 col-md-4 col-lg-4">
 
                                         <li>
-
+                                            <a href="tel:{{$datos_restaurante['result']['international_phone_number']}}" class="descmenu_restaurante">
                                             <i class="iconollamar_restaurante ion-ios-telephone"></i>
 
-                                            <p class="descmenu_restaurante">llamar</p>
+                                            llamar</a>
 
                                         </li>
 
@@ -121,11 +108,6 @@ No tenemos más información de ese restaurante
            <div class="container">
 
 
-
-                   <section id="restaurant_extrainfo">
-
-                   </section>
-
                    <div id="menu_restaurante" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                        <div class="menu_restaurante-nopadding col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
                            <p id="letreromenu_restaurante">menú</p>
@@ -154,6 +136,57 @@ No tenemos más información de ese restaurante
                           @endif
                        </div>
                    </div>
+
+                   <section id="restaurant_extrainfo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                       <div id="restaurant_extrainfo-content">
+                            <p class="restaurant_extrainfo-opener"><span>Ver información práctica</span> <i class="ion-chevron-down"></i></p>
+                            <div class="restaurant_extrainfo-closed">
+                                @if(isset($datos_restaurante["result"]["website"]))
+                                  <article class="restaurant_extrainfo-website">
+                                      <p class="restaurant_extrainfo-title">Website</p>
+                                      <a style="display:block;" class="restaurant_extrainfo-desc"  href="{{$datos_restaurante['result']['website' ]}}">{{$datos_restaurante['result']['website' ]}}</a>
+                                  </article>
+                                @endif
+                                @if(isset($datos_restaurante["result"]["opening_hours"]["weekday_text"]))
+                                  <article class="restaurant_extrainfo-time">
+                                      <p class="restaurant_extrainfo-title">Horarios de apertura</p>
+                                      <p class="restaurant_extrainfo-desc">
+
+                                      </p>
+                                      <p class="restaurant_extrainfo-desc" >De martes a sábado: comidas 13:30 a 18:00 y cenas de 21:00h a 01:00h</p>
+                                      <p class="restaurant_extrainfo-desc" >Domingos y lunes cerrados</p>
+                                  </article>
+                                @endif
+                                @if(isset($datos_restaurante["result"]["price_level"]))
+                                <article class="restaurant_extrainfo-rangeprice">
+                                    <p class="restaurant_extrainfo-title">Nivel de precios</p>
+                                    <p class="restaurant_extrainfo-desc" >{{$datos_restaurante["result"]["price_level"]}}</p>
+                                </article>
+                                @endif
+                                @if(isset($restaurante[0]->servicios))
+                                <article class="restaurant_extrainfo-services">
+                                    <p class="restaurant_extrainfo-title">Servicios</p>
+                                    <p class="restaurant_extrainfo-desc" >
+                                      @foreach($restaurante[0]->servicios as $servicio)
+                                        {{$servicio}},
+                                      @endforeach
+                                    </p>
+                                </article>
+                                @endif
+                                <article class="restaurant_extrainfo-cocina">
+                                    <p class="restaurant_extrainfo-title">Tipo de cocina</p>
+                                    <p class="restaurant_extrainfo-desc" >{{$restaurante[0]->Nombre}}</p>
+                                </article>
+                                <article class="restaurant_extrainfo-populares">
+                                    <p class="restaurant_extrainfo-title">Platos más populares</p>
+                                    <p class="restaurant_extrainfo-desc" >Prueba Bufalo 7, Prueba Bufalo 5, Prueba Bufalo 5</p>
+                                </article>
+
+                            </div>
+                        </div>
+
+                   </section>
+
 
 
                    <section id="restaurant_comments_global" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -200,27 +233,56 @@ No tenemos más información de ese restaurante
                    </section>
 
 
+                   @if(isset($datos_meteorologicos))
+                   <section id="restaurant_weather_extrainfo" class="col-xs-12 col-sm-10 col-md-4 col-lg-4 col-xs-offset-0 col-sm-offset-1 col-md-offset-4 col-lg-offset-4">
 
+                        <h6>Tiempo</h6>
+                        <div id="restaurant_weather_container">
+                            <p class="weather_display_location">{{$datos_meteorologicos['current_observation']['display_location']['city']}}</p>
+                            <img src="{{$datos_meteorologicos['current_observation']['icon_url']}}" alt="">
+                            <p class="weather_display_feelslike">{{$datos_meteorologicos['current_observation']['feelslike_c']}}°<span>min {{$datos_meteorologicos['current_observation']['dewpoint_c']}}°</span></p>
 
+                       </div>
 
-               <a href="{{url('/empresas/'.$datos_restaurante['result']['place_id'])}}">Controla el  restaurante</a>
+                   </section>
+                   @endif
 
+                <div class="restaurant-business-control col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                   <a href="{{url('/empresas/'.$datos_restaurante['result']['place_id'])}}">Controla el  restaurante</a>
+               </div>
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
    </div>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
 
+        jQuery.fn.extend({
+    toggleText: function (a, b){
+        var that = this;
+            if (that.text() != a && that.text() != b){
+                that.text(a);
+            }
+            else
+            if (that.text() == a){
+                that.text(b);
+            }
+            else
+            if (that.text() == b){
+                that.text(a);
+            }
+        return this;
+    }
+});
+        //funcion para abrir informacion práctica
+        $( ".restaurant_extrainfo-opener" ).click(function() {
+            $( ".restaurant_extrainfo-opener span" ).toggleText('Ocultar información práctica' , 'Ver información práctica' );
+           $(".restaurant_extrainfo-closed").toggleClass( "restaurant_extrainfo-open" );
+       });
+
+    });
+
+</script>
 
 @endif
 @endsection
