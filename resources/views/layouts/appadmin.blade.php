@@ -153,30 +153,30 @@
 		<footer>
 			<div class="container">
 				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
-				    <ul>
+						<ul>
 						<li class="footer-title"><a class="link link--nukun" href="{{ url('/') }}">Fin<span>d</span> it</a></li>
-				    	<li><a href="{{ url('/').'/'.LaravelLocalization::getCurrentLocale().'/empresas' }}">Para empresas</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
+							<li><a href="#">¿Quienes somos?</a></li>
+							<li><a href="#">Blog Find It</a></li>
+							<li><a href="#">¡Trabaja en Find IT!</a></li>
+							<li><a href="#">Preguntas mas frecuentes</a></li>
 					</ul>
 				</div>
 				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-				    <ul>
-						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
+						<ul>
+						<li class="footer-title"><a href="#">¿Necesitas ayuda?</a></li>
+							<li><a href="#">Condiciones legales</a></li>
+							<li><a href="#">Contacto</a></li>
+							<li><a href="#">Sugiere un restaurante</a></li>
+							<li><a href="#">Politica de cookies</a></li>
 					</ul>
 				</div>
 				<div class="col-xs-10 col-sm-3 col-md-3 col-lg-3 col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-				    <ul>
-						<li class="footer-title"><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
-				    	<li><a href="#">Lorem Ipsum</a></li>
+						<ul>
+						<li class="footer-title"><a href="#">Redes Sociales</a></li>
+							<li><a href="#">Síguenos en Instagram</a></li>
+							<li><a href="#">Síguenos en Twitter</a></li>
+							<li><a href="#">Síguenos en Facebook</a></li>
+							<li><a href="#">Síguenos en Pinterest</a></li>
 					</ul>
 				</div>
 			</div>

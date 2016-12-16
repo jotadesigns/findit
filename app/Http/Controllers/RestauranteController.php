@@ -190,6 +190,7 @@ public function show()
            'terraza' => $datosRestaurante['Terraza'],
            'parking' =>$datosRestaurante['Parking'],
            'eventos_deportivos' => $datosRestaurante['Eventos'],
+           'indice_foto' => $datosRestaurante['key'],
    ]);
 
    foreach($datosPlatos as $id_plato => $arrayValores){

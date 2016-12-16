@@ -1,4 +1,4 @@
-﻿@extends('layouts.appadmin')
+@extends('layouts.appadmin')
 
 @section('content')
 
@@ -8,7 +8,12 @@
 <form action="{{ url('/introducirMasivoPendienteBBDD')}}" method="POST">
 @foreach( $datos_restaurante as $key => $restaurante )
 <div class="datosIndividual">
-<label class="labelAdm">Nombre de restaurante</label><input type="text" name="Datos[{{ $key }}][NombreRestaurante]" value="{{ $restaurante['result']['name'] }}"  class="form-control">
+  <div class="Terminosfusionfinal col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h2 class="restaurant_settings-title">{{ $restaurante['result']['name'] }}</h2>
+  </div>
+<input type="text" name="Datos[{{ $key }}][NombreRestaurante]" value="{{ $restaurante['result']['name'] }}"  class="form-control">
+<label class="labelAdm"></label>
+<p class="restaurant_settings-subtitle">Datos del restaurante</p>
 <label class="labelAdm">Tipo de restaurante</label>
 
 <select name="Datos[{{ $key }}][TipoRestaurante]" class="form-control">
@@ -48,8 +53,9 @@
 
 
 
-<div class="panel panel-default">
-  <div class="panel-heading"><h4>Categorias para los platos</h4></div>
+
+  <h2 class="restaurant_settings-subtitle">Categorias platos</h2>
+  <div class="panel panel-default">
   <input type="text" class="form-control" id="categorias_plato" placeholder="ej: ENTRANTES Y PRIMER PLATO;BEBIDAS;POSTRES" name="categorias_plato" required>
   <a onclick="añadirCategorias()" id="enviarCategoria" class="btn btn-primary" >Añadir Categoria</a>
 
@@ -92,7 +98,7 @@ function  añadirCategorias(){
 
   categorias = $( "#categorias_plato" ).val().split(";");
             for (var i=0; i<categorias.length; i++) {
-              $("#tabla_categorias").append("<div class='panel-heading'><h2 id='nombreCategoria' style='margin-top:15px; text-align: center;'>Categoria "+categorias[i]+"<a onclick=añadirPlatos('"+categorias[i]+"')  class='btn btn-primary' style='margin-left: 15px;'>+ plato</a></h5></div><div  id='tabla_productos"+categorias[i]+"' class='col-xs-12 col-sm-12 col-md-12 col-lg-12'></div>");
+              $("#tabla_categorias").append("<div class='panel-heading'><h2 class='restaurant_settings-subtitle' id='nombreCategoria' style='margin-top:15px; text-align: center;'>Categoria "+categorias[i]+"<a onclick=añadirPlatos('"+categorias[i]+"')  class='btn btn-primary' style='margin-left: 15px;'>+ plato</a></h5></div><div  id='tabla_productos"+categorias[i]+"' class='col-xs-12 col-sm-12 col-md-12 col-lg-12'></div>");
             };
             document.getElementById("categorias_plato").style.border="solid 2px green";
 $("#categorias_plato").prop('disabled', true);

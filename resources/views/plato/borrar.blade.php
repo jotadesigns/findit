@@ -22,6 +22,10 @@
 <div class="cartaMenu" style="background:#f2e6ff;overflow:auto;">
     <h3 style="margin-bottom:20px;color:#c32020;margin-bottom:25px;font-weight:600;">Platos</h3>
 @foreach ($menus as $plato)
+@if($plato->id_plato ==null)
+NO tienes platos asociados
+@else
+
     <div class="borrado-plato-cont col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <form action="{{ url('/borrarPlatos')}}" method="POST">
         <p><span>Nombre plato:</span> {{ $plato->nombre }}</p>
@@ -33,6 +37,7 @@
         <input type="submit" value="BORRAR PLATO"  class="boton_remove">
         </form>
     </div>
+    @endif
 @endforeach
     </div>
 

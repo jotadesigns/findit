@@ -1,12 +1,16 @@
-﻿@extends('layouts.appadmin')
+@extends('layouts.appadmin')
 
 @section('content')
 
 <div class="container">
   <div class="cartaMenu">
 <form action="{{ url('/introducirPendienteBBDD')}}" method="POST" onsubmit="return validacion()">
-
-<label class="labelAdm">Nombre de restaurante</label><input type="text" id="formNombreRestaurante" name="Datos[NombreRestaurante]" value="{{ $datos_restaurante['result']['name'] }}"  class="form-control">
+  <div class="Terminosfusionfinal col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h2 class="restaurant_settings-title">{{ $datos_restaurante['result']['name'] }}</h2>
+  </div>
+<input type="text" id="formNombreRestaurante" name="Datos[NombreRestaurante]" value="{{ $datos_restaurante['result']['name'] }}"  class="form-control">
+<label class="labelAdm"></label>
+<p class="restaurant_settings-subtitle">Datos del restaurante</p>
 <label class="labelAdm">Tipo de restaurante</label>
 <select name="Datos[TipoRestaurante]" class="form-control">
 @foreach( $tipos as $tipo )
@@ -39,19 +43,23 @@
 
 <input type="hidden" name="Datos[id_restaurante]" value="{{ $placeId }}">
 
-<div class="panel panel-default">
-<div class="panel-heading"><h4>Foto principal</h4></div>
-@foreach( $datos_imagen as $key=>$imagen )
-<div style="display: inline-block;margin-right:10px">
-<img src='{{ $imagen }}') ></img>
-<div>
-  <input style="    width: 100%;" id="CheckImg{{$key}}" type="checkbox" name="Datos[{{$key}}]"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h2 class="restaurant_settings-subtitle">Foto principal</h2>
 </div>
+
+<div class="cartaMenu">
+      @foreach( $datos_imagen as $key=>$imagen )
+      <div style="display: inline-block;margin-right:10px">
+      <img style="    width: 100%;" src='{{ $imagen }}') ></img>
+      <input type="hidden" name="Datos[key]" value="{{$key}}"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
+
+      <input id="CheckImg{{$key}}" type="checkbox" name="Datos[{{$key}}]"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
+      </div>
+      @endforeach
 </div>
-@endforeach
-</div>
-<div class="panel panel-default">
-  <div class="panel-heading"><h4>Categorias para los platos</h4></div>
+
+  <h2 class="restaurant_settings-subtitle">Categorias platos</h2>
+  <div class="panel panel-default">
   <input type="text" class="form-control" id="categorias_plato" placeholder="ej: ENTRANTES Y PRIMER PLATO;BEBIDAS;POSTRES" name="categorias_plato" required>
   <a onclick="añadirCategorias()" id="enviarCategoria" class="btn btn-primary" >Añadir Categoria</a>
 
@@ -110,7 +118,7 @@ function  añadirCategorias(){
 
   categorias = $( "#categorias_plato" ).val().split(";");
             for (var i=0; i<categorias.length; i++) {
-              $("#tabla_categorias").append("<div class='panel-heading'><h2 id='nombreCategoria' style='margin-top:15px; text-align: center;'>Categoria "+categorias[i]+"<a onclick=añadirPlatos('"+categorias[i]+"')  class='btn btn-primary' style='margin-left: 15px;'>+ plato</a></h5></div><div  id='tabla_productos"+categorias[i]+"' class='col-xs-12 col-sm-12 col-md-12 col-lg-12'></div>");
+              $("#tabla_categorias").append("<div class='panel-heading'><h2 class='restaurant_settings-subtitle' id='nombreCategoria' style='margin-top:15px; text-align: center;'>Categoria "+categorias[i]+"<a onclick=añadirPlatos('"+categorias[i]+"')  class='btn btn-primary' style='margin-left: 15px;'>+ plato</a></h5></div><div  id='tabla_productos"+categorias[i]+"' class='col-xs-12 col-sm-12 col-md-12 col-lg-12'></div>");
             };
             document.getElementById("categorias_plato").style.border="solid 2px green";
 $("#categorias_plato").prop('disabled', true);

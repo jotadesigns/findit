@@ -73,6 +73,8 @@
               @foreach( $datos_imagen as $key=>$imagen )
               <div style="display: inline-block;margin-right:10px">
               <img style="    width: 100%;" src='{{ $imagen }}') ></img>
+              <input type="hidden" name="Datos[key]" value="{{$key}}"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
+
               <input id="CheckImg{{$key}}" type="checkbox" name="Datos[{{$key}}]"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
               </div>
               @endforeach
