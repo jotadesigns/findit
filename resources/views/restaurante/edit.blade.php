@@ -11,121 +11,115 @@
 @else
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default"  style="border-radius: 32px;    border-color: #b73a3a;background: #b73a3a;">
+    <div class="row" style="padding:0;">
+        @foreach ($restaurantes as $restaurante)
+        <div class="Terminosfusionfinal col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 class="restaurant_settings-title">{{ $restaurante->nombre_restaurante }}</h2>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form action="{{ url('/DatosModificadosRestaurante')}}" method="POST">
+            <p class="restaurant_settings-subtitle">Datos del restaurante</p>
+            <select name="Datos[TipoRestaurante]" class="form-control">
+            @foreach( $tipos as $tipo )
+                @if ( $tipo->Nombre == $tipoConcreto->Nombre )
+                <option value="{{ $tipo->id_tipo }}" selected>{{ $tipo->Nombre }}</option>
+                @else
+                  <option value="{{ $tipo->id_tipo }}">{{ $tipo->Nombre }}</option>
+                @endif
+            @endforeach
+            </select>
+
+            <label>Entrega a domicilio</label>
+            @if ( $restaurante->domicilio == 0 )
+             <input type="hidden" name="Datos[Domicilio]" value="0">
+             <input type="checkbox" name="Datos[Domicilio]" class="form-control">
+             @else
+             <input type="checkbox" name="Datos[Domicilio]" checked class="form-control">
+             @endif
+
+            <label>Terraza</label>
+            @if ( $restaurante->terraza == 0 )
+            <input type="hidden" name="Datos[Terraza]" value="0">
+            <input type="checkbox" name="Datos[Terraza]" class="form-control">
+            @else
+            <input type="checkbox" name="Datos[Terraza]" checked class="form-control">
+            @endif
+
+            <label>Parking propio</label>
+            @if ( $restaurante->parking == 0 )
+              <input type="hidden" name="Datos[Parking]" value="0">
+              <input type="checkbox" name="Datos[Parking]" class="form-control">
+              @else
+              <input type="checkbox" name="Datos[Parking]" checked class="form-control">
+              @endif
+
+            <label>Retransmite eventos deportivos</label>
+            @if ( $restaurante->eventos_deportivos == 0 )
+            <input type="hidden" name="Datos[Eventos]" value="0">
+            <input type="checkbox" name="Datos[Eventos]" class="form-control">
+            @else
+            <input type="checkbox" name="Datos[Eventos]" checked class="form-control">
+            @endif
 
 
-@foreach ($restaurantes as $restaurante)
-<div class="panel-heading" style="border-radius: 32px;color: #FFE;background-color: #7d6199;border-color: #554268;"><h2>{{ $restaurante->nombre_restaurante }}</h2></div>
+        </div>
 
-<form action="{{ url('/DatosModificadosRestaurante')}}" method="POST">
-  <div class="cartaMenu" >
-      <label>Tipo de restaurante</label>
-      <select name="Datos[TipoRestaurante]" class="form-control">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 class="restaurant_settings-subtitle">Foto principal</h2>
+        </div>
 
-      @foreach( $tipos as $tipo )
-      @if ( $tipo->Nombre == $tipoConcreto->Nombre )
-      <option value="{{ $tipo->id_tipo }}" selected>{{ $tipo->Nombre }}</option>
-      @else
-        <option value="{{ $tipo->id_tipo }}">{{ $tipo->Nombre }}</option>
-      @endif
-      @endforeach
-      </select>
-      <label>Entrega a domicilio</label>
-      @if ( $restaurante->domicilio == 0 )
-       <input type="hidden" name="Datos[Domicilio]" value="0">
-       <input type="checkbox" name="Datos[Domicilio]" class="form-control">
+        <div class="cartaMenu">
+              @foreach( $datos_imagen as $key=>$imagen )
+              <div style="display: inline-block;margin-right:10px">
+              <img style="    width: 100%;" src='{{ $imagen }}') ></img>
+              <input id="CheckImg{{$key}}" type="checkbox" name="Datos[{{$key}}]"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
+              </div>
+              @endforeach
+        </div>
 
-       @else
-       <input type="checkbox" name="Datos[Domicilio]" checked class="form-control">
 
-@endif
+        @endforeach
 
-      <label>Terraza</label>
-       @if ( $restaurante->terraza == 0 )
-          <input type="hidden" name="Datos[Terraza]" value="0">
-         <input type="checkbox" name="Datos[Terraza]" class="form-control">
 
-         @else
-         <input type="checkbox" name="Datos[Terraza]" checked class="form-control">
-  @endif
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-      <label>Parking propio</label>
-      @if ( $restaurante->parking == 0 )
-        <input type="hidden" name="Datos[Parking]" value="0">
-        <input type="checkbox" name="Datos[Parking]" class="form-control">
 
-        @else
-        <input type="checkbox" name="Datos[Parking]" checked class="form-control">
-   @endif
+            <div class="cartaMenu">
+                <p class="restaurant_settings-subtitle">PLATOS</p>
 
-      <label>Retransmite eventos deportivos</label>
-      @if ( $restaurante->eventos_deportivos == 0 )
-        <input type="hidden" name="Datos[Eventos]" value="0">
-        <input type="checkbox" name="Datos[Eventos]" class="form-control">
+                @foreach ($menus as $key=>$plato)
+                <script>count++;</script>
+                <div class="divPlatos">
+                    <label>Nombre plato</label>  <input type="text" name="{{ $plato->id_plato }}[nombre]" value="{{ $plato->nombre }}" class="form-control">
+                    <label>Precio plato</label>  <input type="text" name="{{ $plato->id_plato }}[precio]" value="{{ $plato->precio }}" class="form-control">
+                    <label>¿Es su producto estrella?</label>
+                    @if ( $plato->estrella == 0 )
+                    <input class='form-control' type='checkbox' id='Check{{ $key }}' name='{{ $plato->id_plato }}[estrella]' onclick='selectOnlyThis(this.id,{{ $cuenta }})' />
+                    @else
+                    <input class='form-control' type='checkbox' id='Check{{ $key }}' name='{{ $plato->id_plato }}[estrella]' checked onclick='selectOnlyThis(this.id,{{ $cuenta }})' />
+                    @endif
 
-        @else
-        <input type="checkbox" name="Datos[Eventos]" checked class="form-control">
-   @endif
-
+                    <label>Categoria Plato</label> <input type="text" name="{{ $plato->id_plato }}[categoria_plato]" value="{{ $plato->categoria_plato }}" class="form-control">
+                    <hr size="7"  />
+                </div>
+                @endforeach
+            </div>
+     </div>
   </div>
-@endforeach
-      </div>
-      <div class="panel panel-default"  style="border-radius: 32px;    border-color: #b73a3a;background: #b73a3a;">
 
-        <div class="panel-heading" style="border-radius: 32px;color: #FFE;background-color: #7d6199;border-color: #554268;">
-<h4>FOTO PRINCIPAL</h4></div>
-<div class="cartaMenu">
-      @foreach( $datos_imagen as $key=>$imagen )
-      <div style="display: inline-block;margin-right:10px">
-      <img style="    width: 100%;" src='{{ $imagen }}') ></img>
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+  <input type="hidden" name="id_restaurante" value="{{ $restaurante->id_restaurante }}">
+   <input style="margin-top:20px;margin-bottom:100px;" type="submit" value="ENVIA TUS DATOS"  class="boton_login">
+  </form>
 
-        <input id="CheckImg{{$key}}" type="checkbox" name="Datos[{{$key}}]"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
-      </div>
-      @endforeach
-      </div>
 </div>
-<div class="panel panel-default"  style="border-radius: 32px;    border-color: #b73a3a;background: #b73a3a;">
 
-  <div class="panel-heading" style="border-radius: 32px;color: #FFE;background-color: #7d6199;border-color: #554268;">
-<h4>PLATOS</h4></div>
-<div class="cartaMenu">
-@foreach ($menus as $key=>$plato)
-<script>count++;</script>
-<div class="divPlatos">
-<label>Nombre plato</label>  <input type="text" name="{{ $plato->id_plato }}[nombre]" value="{{ $plato->nombre }}" class="form-control">
-<label>Precio plato</label>  <input type="text" name="{{ $plato->id_plato }}[precio]" value="{{ $plato->precio }}" class="form-control">
 
-<label>¿Es su producto estrella?</label>
-
-@if ( $plato->estrella == 0 )
-
-<input class='form-control' type='checkbox' id='Check{{ $key }}' name='{{ $plato->id_plato }}[estrella]' onclick='selectOnlyThis(this.id,{{ $cuenta }})' />
-  @else
-  <input class='form-control' type='checkbox' id='Check{{ $key }}' name='{{ $plato->id_plato }}[estrella]' checked onclick='selectOnlyThis(this.id,{{ $cuenta }})' />
-
-@endif
-
-<label>Categoria Plato</label> <input type="text" name="{{ $plato->id_plato }}[categoria_plato]" value="{{ $plato->categoria_plato }}" class="form-control">
-<hr size="7"  />
-</div>
-@endforeach
-</div>
-    </div>
-  </div>
-</div>
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="hidden" name="id_restaurante" value="{{ $restaurante->id_restaurante }}">
-  <input type="submit" value="ENVIA TUS DATOS"  class="btn btn-primary">
-</form>
 
 </div>
 
 @endif
-
-
-
 
 
 

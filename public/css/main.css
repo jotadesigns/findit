@@ -191,6 +191,7 @@ body {
 .nav-languages-selector li {
 	width: 100%;
 	cursor: pointer;
+	padding: 2px 5px;
 }
 .nav-languages-selector li a{
 	text-transform: capitalize;
@@ -201,6 +202,83 @@ body {
 	width: 30px;
 	height: 30px;
 }
+/*ADMIN RESTAURANT ADMIN RESTAURANT */
+.restaurant_settings{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.restaurant_settings .tituloResultado{
+	color: white;
+	font-size: 22px;
+	margin: 0;
+	margin-bottom: 20px;
+	background-color: #2d37ad;
+	padding: 5px;
+	font-family: 'Raleway';
+}
+.restaurant_settings div{
+	height: 140px;
+	padding: 0;
+	-webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.restaurant_settings div:hover{
+	background-color: rgb(17, 24, 105);
+	-webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+
+}
+.restaurant_settings form{
+	height: 100%;
+}
+.restaurant_settings-title{
+	background-color: #303886;
+	text-align: center;
+	color: white;
+	padding: 15px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 27px;
+}
+.restaurant_settings-subtitle{
+	background-color: #b73a3a;
+	text-align: center;
+	color: white;
+	padding: 10px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+}
+.Terminosfusionfinal{
+	padding: 0!important;
+}
+.restaurant_settings-btn{
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	background-color: transparent;
+	border: none;
+	font-family: 'Raleway', sans-serif;
+	font-size: 16px;
+}
+.restaurant_settings-edit{
+	background-color: rgb(45, 55, 173);
+}
+.restaurant_settings-more{
+	background-color: #232da2;
+}
+.restaurant_settings-less{
+	background-color: #141e88;
+}
+.restaurant_settings-exit{
+	background-color: #141d7d;
+}
+
 
 /*     BUSCADOR MAIN   BUSCADOR MAIN      */
 #buscador_main{
@@ -438,6 +516,12 @@ font-family: 'Raleway', sans-serif;
 	margin-top: 3px;
 	text-transform: capitalize;;
 }
+.warning-empty{
+	font-family: 'Raleway',sans-serif;
+	font-size: 18px;
+	color: white;
+	margin-top: 50px;
+}
 .label-text:before{
     content: "\f096";
     font-family: "FontAwesome";
@@ -446,7 +530,7 @@ font-family: 'Raleway', sans-serif;
     font-variant: normal;
     text-transform: none;
     font-size: 20px;
-    color:#ccccd2;
+    color:#6f6f6f;
     display: inline-block;
     cursor: pointer;
 
@@ -1001,7 +1085,7 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
 	padding-right: 0;
 }
 #titular_restaurante{
-	font-size: 27px;
+	font-size: 32px;
 	letter-spacing: 1.2px;
 	font-family: 'Raleway', sans-serif;
 	margin-bottom: 3px;
@@ -1814,6 +1898,9 @@ margin-bottom: 100px;
 }
 .boton_login:hover{
     background-color: #24610f!important;
+}
+.blanco-input input[type="text"]{
+	background-color: white!important;
 }
 .login-cont h3{
 	text-align: center;

@@ -10,7 +10,7 @@
   </div>
     </div>
 @if ( !$pendientes->count() )
-  No hemos encontrado locales cercanos
+  <p class="warning-empty"> No tienes locales pendientes</p>
 @else
 <div class="container">
 

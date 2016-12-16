@@ -113,7 +113,6 @@
 	</nav>
 	<div id="wrapper">
 
-		<div id="wrapper">
 
 	        @yield('content')
 

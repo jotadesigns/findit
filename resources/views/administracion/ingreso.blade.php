@@ -23,7 +23,7 @@
               <input id="direccion" type="text"  name="busqueda" placeholder="@lang('welcome.placeholder_direccion')" required/>
           </div>
 
-            <h2>Radio en metros </h2>
+            <h4 style="margin-top:30px;font-weight:bold;margin-left:23px;">Radio en metros </h4>
             <div class="search-form search-direction">
               <input type="number" value="1000" name="radio"  required/>
                 </div>

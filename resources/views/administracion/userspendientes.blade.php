@@ -13,7 +13,7 @@
         </div>
 
         @if ( !$peticiones->count() )
-        No existen users pendientes
+         <p class="warning-empty">No existen users pendientes</p>
         @else
 
             @foreach($peticiones as $peticion)

@@ -83,8 +83,8 @@ if(isset($restaurante[0])){
   $restaurante[0]->servicios = $servicios;
 }
 
-//RETORNAMOS UN JSON CON LA VISTA RENDERIZADA
-$returnHTML = view('restaurante.index')->with(array('restaurante'=> $restaurante, 'datos_restaurante' => $datos_restaurante, 'datos_imagen' => $datos_imagen,'datos_meteorologicos' => $datos_meteorologicos))->render();
+  //RETORNAMOS UN JSON CON LA VISTA RENDERIZADA
+  $returnHTML = view('restaurante.index')->with(array('restaurante'=> $restaurante, 'datos_restaurante' => $datos_restaurante, 'datos_imagen' => $datos_imagen,'datos_meteorologicos' => $datos_meteorologicos))->render();
   return response()->json( array('success' => true, 'html'=>$returnHTML) );
 }
 
@@ -212,7 +212,7 @@ public function show()
 
 
 
- return redirect()->action('HomeController@index');
+ return redirect()->action('RestauranteController@show');
  }
  /**
  * Remove the specified resource from storage.

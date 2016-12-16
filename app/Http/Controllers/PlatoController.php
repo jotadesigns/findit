@@ -543,7 +543,7 @@ public function update(Project $project, Task $task)
 
 
 
-return redirect()->action('HomeController@index');
+    return redirect()->action('RestauranteController@show');
  }
 
  }

@@ -11,7 +11,7 @@
 </div>
 
 @if ( !$pendientes->count() )
-  <h3 style="color:white">  No hemos encontrado locales cercanos</h3>
+  <p class="warning-empty"> No tienes locales pendientes</p>
 @else
 <div class="container">
 

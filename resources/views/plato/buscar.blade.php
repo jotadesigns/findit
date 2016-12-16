@@ -455,7 +455,8 @@
 
         <script>
 
-
+        var NUMERORESULTADOS = {{env('LIMIT')}},
+        offset = NUMERORESULTADOS;
         var busy = false;
         //cuando cargue el DOM
         $(function() {

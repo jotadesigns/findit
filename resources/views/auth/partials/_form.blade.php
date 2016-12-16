@@ -2,10 +2,10 @@
     <h2 class="profile-data-title">Cambiar datos</h2>
 </div>
 
-<div class="perfil-form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="perfil-form-group blanco-input col-xs-12 col-sm-12 col-md-12 col-lg-12">
     {!! Form::text('name') !!}
 </div>
-<div class="perfil-form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="perfil-form-group blanco-input col-xs-12 col-sm-12 col-md-12 col-lg-12">
     {!! Form::text('email') !!}
 </div>
 

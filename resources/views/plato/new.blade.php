@@ -11,47 +11,30 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <div class="panel panel-default"  style="border-radius: 32px;    border-color: #b73a3a;background: #b73a3a;">
-
-
-@foreach ($restaurante as $datos)
-<div class="panel-heading" style="border-radius: 32px;color: #FFE;background-color: #7d6199;border-color: #554268;">
-<h2>Añadir platos para {{ $datos->nombre_restaurante }}</h2></div>
-
-@endforeach
-      </div>
-<form action="{{ url('/añadirMasPlatosRestaurante')}}" method="POST">
-  <div class="cartaMenu">
-    <div class="panel-heading"><h3>Categorias para los platos</h3></div>
-    <input type="text" class="form-control" id="categorias_plato" placeholder="ej: ENTRANTES Y PRIMER PLATO;BEBIDAS;POSTRES" name="categorias_plato" required>
-    <a onclick="añadirCategorias()" id="enviarCategoria" class="btn btn-primary" >Añadir Categoria</a>
-
-
-  <div  id='tabla_categorias' class='col-xs-12 col-sm-12 col-md-12 col-lg-12  tablaCategorias'></div>
-
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-  <input type="hidden" name="datos[id_restaurante]" value="{{ $datos->id_restaurante }}">
-  <input type="hidden" name="datos[id_menu]" value="{{ $datos->id_menu }}">
-    <input type="submit" value="ENVIA TUS DATOS"  class="btn btn-primary">
+            @foreach ($restaurante as $datos)
+            <p class="restaurant_settings-subtitle">Añadir platos para {{ $datos->nombre_restaurante }}</p>
+            @endforeach
+        <form action="{{ url('/añadirMasPlatosRestaurante')}}" method="POST">
+            <div class="cartaMenu">
+                <div class="panel-heading"><h3>Categorias para los platos</h3></div>
+                <input type="text" class="form-control" id="categorias_plato" placeholder="ej: ENTRANTES Y PRIMER PLATO;BEBIDAS;POSTRES" name="categorias_plato" required>
+                <a onclick="añadirCategorias()" id="enviarCategoria" class="btn btn-primary" >Añadir Categoria</a>
+                <div  id='tabla_categorias' class='col-xs-12 col-sm-12 col-md-12 col-lg-12  tablaCategorias'></div>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="datos[id_restaurante]" value="{{ $datos->id_restaurante }}">
+                <input type="hidden" name="datos[id_menu]" value="{{ $datos->id_menu }}">
+                <input type="submit" value="ENVIA TUS DATOS"  class="boton_login">
+            </div>
+        </form>
     </div>
-  </form>
-</div></div>
-
-<div style="width:100%; height:120px;">
-</div>
 </div>
 
-
-
-
-
-
-
-
-
+    <div style="width:100%; height:120px;">
+    </div>
+</div>
 
 @endif
-  @endsection
+@endsection
 
 
 

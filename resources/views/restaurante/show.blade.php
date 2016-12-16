@@ -10,40 +10,44 @@
   No tienes restaurantes asociados
 @else
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">ADMINISTRACION DE TUS RESTAURANTES</div>
-@foreach ($restaurantes as $restaurante)
-  <div class="panelResultados panelResultadosNoFichado">
-                <div class="panel-body">
+    <div style="padding-bottom:40px;" class="row">
 
-              <p class="tituloResultado">{{ $restaurante->nombre_restaurante }}</p>
-              <form action="{{ url('/editarRestauranteConcreto')}}" method="POST">
-              <input type="hidden" name="prueba" value={{$restaurante->id_restaurante}} />
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <input type="submit" value="Modificar Restaurante" class="btn btn-primary">
-              </form>
-              <form action="{{ url('/añadirPlatos')}}" method="POST">
-              <input type="hidden" name="prueba" value={{$restaurante->id_restaurante}} />
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <input type="submit" value="Añadir Platos" class="btn btn-primary">
-              </form>
-              <form action="{{ url('/mostrarPlatosBorrar')}}" method="POST">
-              <input type="hidden" name="prueba" value={{$restaurante->id_restaurante}} />
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <input type="submit" value="Borrar Platos" class="btn btn-primary">
-              </form>
-              <form action="{{ url('/desvincularRestaurante')}}" method="POST">
-              <input type="hidden" name="prueba" value={{$restaurante->id_restaurante}} />
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <input type="submit" value="Desvincular Restaurante" class="btn btn-primary">
-              </form>
-              </div>
-</div>
-@endforeach
-</div>
-</div>
+        @foreach ($restaurantes as $restaurante)
+        <div class="restaurant_settings col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <p class="restaurant_settings-subtitle">{{ $restaurante->nombre_restaurante }}</p>
+            <div class="restaurant_settings-edit col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <form action="{{ url('/editarRestauranteConcreto')}}" method="POST">
+
+                <input type="hidden" name="prueba" value={{$restaurante->id_restaurante}} />
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="submit" value="Modificar Restaurante" class="restaurant_settings-btn ">
+                </form>
+            </div>
+            <div class="restaurant_settings-more col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <form action="{{ url('/añadirPlatos')}}" method="POST">
+                <input type="hidden" name="prueba" value={{$restaurante->id_restaurante}} />
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="submit" value="Añadir Platos" class="restaurant_settings-btn ">
+                </form>
+            </div>
+            <div class="restaurant_settings-less col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <form action="{{ url('/mostrarPlatosBorrar')}}" method="POST">
+            <input type="hidden" name="prueba" value={{$restaurante->id_restaurante}} />
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="submit" value="Borrar Platos" class="restaurant_settings-btn ">
+            </form>
+            </div>
+            <div class="restaurant_settings-exit col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <form action="{{ url('/desvincularRestaurante')}}" method="POST">
+                <input type="hidden" name="prueba" value={{$restaurante->id_restaurante}} />
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="submit" value="Desvincular Restaurante" class="restaurant_settings-btn ">
+                </form>
+            </div>
+        </div>
+        @endforeach
+
+
 </div>
 </div>
 @endif

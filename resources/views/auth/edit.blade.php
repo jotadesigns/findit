@@ -26,10 +26,10 @@
             </div>
             <form class="" action="{{ url('/').'/'.LaravelLocalization::getCurrentLocale().'/perfil/config_pass' }}" method="post">
                 <div class="perfil-form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <input type="password" placeholder="******" name="password" required />
+                    <input style="background-color:#fff;" type="password" placeholder="******" name="password" required />
                 </div>
                 <div class="perfil-form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <input type="password" placeholder="******" name="password_confirmation" required >
+                    <input style="background-color:#fff;" type="password" placeholder="******" name="password_confirmation" required >
                 </div>
                 <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <input class="btn-profile-data" type="submit" name="change" value="Cambiar">
