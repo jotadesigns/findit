@@ -20,7 +20,7 @@
                               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
                                   <div class="producto producto-padding">
                                       <div class="no-padding col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                      <a class="trigger-overlay" data-placeid="{{ $favorito->id_restaurante }}" href="#" onclick="realizaProceso($(this).attr('data-placeid'));return false;">
+                                      <a class="trigger-overlay" data-placeid="{{ $favorito->id_restaurante }}" href="#">
                                           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                               <img class="icono_producto" src="{{ asset('assets/imagenes/' . $favorito->icono) }}">
                                           </div>

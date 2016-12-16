@@ -540,9 +540,15 @@ font-family: 'Raleway', sans-serif;
     font-variant: normal;
     text-transform: none;
     font-size: 20px;
-    color:#6f6f6f;
+    color:rgba(255, 255, 255, 0.66);
     display: inline-block;
     cursor: pointer;
+
+}
+.changetick:before{
+
+    color:grey;
+
 
 }
 .checkbox_animado{
@@ -1315,7 +1321,7 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
     font-family: 'Raleway', sans-serif;
     color:white;
     margin-bottom: 0px;
-    margin-top: 6px;
+    margin-top: 0;
     text-transform: uppercase;
 }
 .descmenu_restaurante:hover{
@@ -2192,7 +2198,7 @@ margin-bottom: 100px;
 	}
 	.descmenu_restaurante{
 		font-size: 12px!important;
-		margin-top: -5px;
+
 	}
 	.menunav_restaurante_no-padding{
 		padding: 0;
@@ -2211,7 +2217,7 @@ margin-bottom: 100px;
 		font-size: 30px;
 	}
 	.cuadromenu_restaurante{
-		height: initial;
+
 	}
 	#puntuacion_restaurante{
 		font-size: 20px;

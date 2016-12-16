@@ -26,7 +26,7 @@
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <input type="hidden" name="{{ $restaurante['id_restaurante'] }}[id_restaurante]" value="{{ $restaurante['id_restaurante'] }}">
       <label style="text-align:center;display:block;margin-bottom:0;margin-top:5px;"><input type="checkbox" name="{{ $restaurante['id_restaurante'] }}[seleccion]" class="checkbox_animado">
-              <span class="label-text"></span>
+              <span class="label-text changetick"></span>
       </label>
     </div>
   </div>

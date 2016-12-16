@@ -71,7 +71,7 @@ No tenemos más información de ese restaurante
                                             <a href="tel:{{$datos_restaurante['result']['international_phone_number']}}" class="descmenu_restaurante">
                                             <i class="iconollamar_restaurante ion-ios-telephone"></i>
 
-                                            llamar</a>
+                                            <p class="descmenu_restaurante">llamar</p></a>
 
                                         </li>
 
@@ -80,10 +80,10 @@ No tenemos más información de ese restaurante
                                     <div class="cuadromenu_restaurante col-xs-4 col-sm-4 col-md-4 col-lg-4">
 
                                          <li>
-
-                                             <i class="icononavegacion_restaurante ion-ios-navigate-outline"></i>
-
-                                             <p class="descmenu_restaurante">llévame</p>
+                                            <a href="#" style="font-size:20px;text-decoration:none;">
+                                              <i class="icononavegacion_restaurante ion-ios-navigate-outline"></i>
+                                              <p class="descmenu_restaurante">llévame</p>
+                                            </a>
 
                                          </li>
 
@@ -163,7 +163,7 @@ No tenemos más información de ese restaurante
                                     <p class="restaurant_extrainfo-desc" >{{$datos_restaurante["result"]["price_level"]}}</p>
                                 </article>
                                 @endif
-                                @if(isset($restaurante[0]->servicios))
+                                @if(count($restaurante[0]->servicios)>0)
                                 <article class="restaurant_extrainfo-services">
                                     <p class="restaurant_extrainfo-title">Servicios</p>
                                     <p class="restaurant_extrainfo-desc" >
@@ -247,8 +247,8 @@ No tenemos más información de ese restaurante
                    </section>
                    @endif
 
-                   <div style="padding-left:35%; margin-top:15px; margin-bottom:15px;">
-                     <a class="btn btn-warning" style="color:black; font-weight: bold;" href="{{url('/empresas/'.$datos_restaurante['result']['place_id'])}}">¿Quieres controlar este restaurante? FIND IT Empresas</a>
+                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">
+                     <a class="btn btn-warning" style="margin-top:70px;color:black;margin-bottom:30px; font-weight: bold;" href="{{url('/empresas/'.$datos_restaurante['result']['place_id'])}}">¿Quieres controlar este restaurante? FIND IT Empresas</a>
                   </div>
             </div>
 
