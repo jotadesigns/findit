@@ -5,11 +5,32 @@
 
 <div class="container">
   <div class="cartaMenu">
+<<<<<<< Updated upstream
 <form action="{{ url('/introducirPendienteBBDD')}}" method="POST">
 
 <label>Nombre de restaurante</label><input type="text" name="Datos[NombreRestaurante]" value="{{ $datos_restaurante['result']['name'] }}"  class="form-control">
 <label>Tipo de restaurante</label><input type="text" name="Datos[TipoRestaurante]"  class="form-control">
 
+=======
+<form action="{{ url('/introducirPendienteBBDD')}}" method="POST" onsubmit="return validacion()">
+
+  <div class="Terminosfusionfinal col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h2 class="restaurant_settings-title">{{ $datos_restaurante['result']['name'] }}</h2><input type="text" id="formNombreRestaurante" name="Datos[NombreRestaurante]" value="{{ $datos_restaurante['result']['name'] }}"  class="form-control"/>
+
+  </div>
+
+<label class="labelAdm"></label>
+<p class="restaurant_settings-subtitle">Datos del restaurante</p>
+<label class="labelAdm">Tipo de restaurante</label>
+<select name="Datos[TipoRestaurante]" class="form-control">
+@foreach( $tipos as $tipo )
+
+      <option value="{{ $tipo->id_tipo }}">{{ $tipo->Nombre }}</option>
+
+@endforeach
+</select>
+
+>>>>>>> Stashed changes
 <label>Entrega a domicilio</label>
  <input type="hidden" name="Datos[Domicilio]" value="0">
  <input type="checkbox" name="Datos[Domicilio]" class="form-control">
@@ -33,12 +54,31 @@
   <input type="checkbox" name="Datos[Eventos]" class="form-control">
 
 <input type="hidden" name="Datos[id_restaurante]" value="{{ $placeId }}">
+<<<<<<< Updated upstream
 
 
 
 
 <div class="panel panel-default">
   <div class="panel-heading"><h5>Categorias para los platos</h5></div>
+=======
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h2 class="restaurant_settings-subtitle">Foto principal</h2>
+</div>
+
+<div class="cartaMenu">
+      @foreach( $datos_imagen as $key=>$imagen )
+      <div style="display: inline-block;margin-right:10px">
+      <img style="    width: 100%;" src='{{ $imagen }}') ></img>
+      <input type="hidden" name="Datos[indiceImagen]" value="{{$key}}">
+      <input id="CheckImg{{$key}}" type="checkbox" name="Datos[{{$key}}]"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
+      </div>
+      @endforeach
+</div>
+
+
+  <h2 class="restaurant_settings-subtitle">Categorias platos</h2>
+>>>>>>> Stashed changes
   <input type="text" class="form-control" id="categorias_plato" placeholder="ej: ENTRANTES Y PRIMER PLATO;BEBIDAS;POSTRES" name="categorias_plato" required>
   <a onclick="añadirCategorias()" id="enviarCategoria" class="btn btn-primary" >Añadir Categoria</a>
 
@@ -52,6 +92,7 @@
 </form>
 <input type="hidden" id="valor_select" value=""/>
 </div>
+
 </div>
 
 
@@ -74,10 +115,19 @@ txt2 += "</select>";
 function  añadirCategorias(){
   categorias = $( "#categorias_plato" ).val().split(";");
             for (var i=0; i<categorias.length; i++) {
+<<<<<<< Updated upstream
               $("#tabla_categorias").append("<div class='panel-heading'><h2 id='nombreCategoria' style='margin-top:15px;'>Categoria "+categorias[i]+"</h5></div><a onclick=añadirPlatos('"+categorias[i]+"')  class='btn btn-primary' >+ plato</a><div  id='tabla_productos"+categorias[i]+"' class='col-xs-12 col-sm-12 col-md-12 col-lg-12'></div>");
+=======
+              $("#tabla_categorias").append("<div class='panel-heading'><p id='nombreCategoria' class='restaurant_settings-subtitle' style='margin-top:15px; text-align: center;'>Categoria "+categorias[i]+"<a onclick=añadirPlatos('"+categorias[i]+"')  class='btn btn-primary' style='margin-left: 15px;'>+ plato</a></p></div><div  id='tabla_productos"+categorias[i]+"' class='col-xs-12 col-sm-12 col-md-12 col-lg-12'></div>");
+>>>>>>> Stashed changes
             };
 $("#categorias_plato").prop('disabled', true);
+<<<<<<< Updated upstream
 $("#enviarCategoria").prop("onclick", false);
+=======
+$("#enviarCategoria").prop("onclick", false);   
+}
+>>>>>>> Stashed changes
 
 
 }

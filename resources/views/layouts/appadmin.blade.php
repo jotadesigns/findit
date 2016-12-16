@@ -20,7 +20,7 @@
 		<link href="{{ asset('/css/admin.css') }}" rel="stylesheet" type="text/css"/>
 		<link href="{{ asset('/css/image-picker.css') }}" rel="stylesheet" type="text/css"/>
 		<script src="{{ asset('/js/image-picker.min.js') }}" type="text/javascript"></script>
-		<script src="{{ asset('/js/demo1.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('/js/demo1.js') }}" type="text/javascript"></script> 
 
 <script src="js/msdropdown/jquery-1.3.2.min.js" type="text/javascript"></script>
 <script src="js/msdropdown/jquery.dd.min.js" type="text/javascript"></script>
@@ -38,7 +38,7 @@
 
 </head>
 <body>
-	<nav class="hdnav">
+ <nav class="hdnav">
 		<div class="hdnavpad">
 			<div class="row">
 				<div class="nav-logo col-xs-5 col-sm-5 col-md-6 col-lg-6">

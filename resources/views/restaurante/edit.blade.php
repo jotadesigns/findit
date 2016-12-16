@@ -11,9 +11,79 @@
 @else
 
 <div class="container">
+<<<<<<< Updated upstream
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
+=======
+    <div class="row" style="padding:0;">
+        @foreach ($restaurantes as $restaurante)
+        <div class="Terminosfusionfinal col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 class="restaurant_settings-title">{{ $restaurante->nombre_restaurante }}</h2>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form action="{{ url('/DatosModificadosRestaurante')}}" method="POST">
+            <p class="restaurant_settings-subtitle">Datos del restaurante</p>
+            <select name="Datos[TipoRestaurante]" class="form-control">
+            @foreach( $tipos as $tipo )
+                @if ( $tipo->Nombre == $tipoConcreto->Nombre )
+                <option value="{{ $tipo->id_tipo }}" selected>{{ $tipo->Nombre }}</option>
+                @else
+                  <option value="{{ $tipo->id_tipo }}">{{ $tipo->Nombre }}</option>
+                @endif
+            @endforeach
+            </select>
+
+            <label>Entrega a domicilio</label>
+            @if ( $restaurante->domicilio == 0 )
+             <input type="hidden" name="Datos[Domicilio]" value="0">
+             <input type="checkbox" name="Datos[Domicilio]" class="form-control">
+             @else
+             <input type="checkbox" name="Datos[Domicilio]" checked class="form-control">
+             @endif
+
+            <label>Terraza</label>
+            @if ( $restaurante->terraza == 0 )
+            <input type="hidden" name="Datos[Terraza]" value="0">
+            <input type="checkbox" name="Datos[Terraza]" class="form-control">
+            @else
+            <input type="checkbox" name="Datos[Terraza]" checked class="form-control">
+            @endif
+
+            <label>Parking propio</label>
+            @if ( $restaurante->parking == 0 )
+              <input type="hidden" name="Datos[Parking]" value="0">
+              <input type="checkbox" name="Datos[Parking]" class="form-control">
+              @else
+              <input type="checkbox" name="Datos[Parking]" checked class="form-control">
+              @endif
+
+            <label>Retransmite eventos deportivos</label>
+            @if ( $restaurante->eventos_deportivos == 0 )
+            <input type="hidden" name="Datos[Eventos]" value="0">
+            <input type="checkbox" name="Datos[Eventos]" class="form-control">
+            @else
+            <input type="checkbox" name="Datos[Eventos]" checked class="form-control">
+            @endif
+
+
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 class="restaurant_settings-subtitle">Foto principal</h2>
+        </div>
+
+        <div class="cartaMenu">
+              @foreach( $datos_imagen as $key=>$imagen )
+              <div style="display: inline-block;margin-right:10px">
+              <img style="    width: 100%;" src='{{ $imagen }}') ></img>
+              <input type="hidden" name="Datos[indiceImagen]" value="{{$key}}">
+              <input id="CheckImg{{$key}}" type="checkbox" name="Datos[{{$key}}]"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
+              </div>
+              @endforeach
+        </div>
+>>>>>>> Stashed changes
 
 
 @foreach ($restaurantes as $restaurante)

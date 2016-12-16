@@ -138,6 +138,7 @@ public function edit(Request $request)
  * @param  \App\Project $project
  * @return Response
  */
+<<<<<<< Updated upstream
 public function update(Request $request)
 {
   $datosRestaurante = $request->input('Datos');
@@ -171,6 +172,51 @@ if($datosRestaurante['Eventos']=="on"){
           foreach($arrayValores as $columna => $valor){
               plato::where('platos.id_plato','=', $id_plato)->update([$columna =>$valor]);
         }
+=======
+ public function update(Request $request)
+ {
+   $datosRestaurante = $request->input('Datos');
+
+   $datosPlatos = $request->except('Datos');
+
+ $id_restaurante = $request->input('id_restaurante');
+ if($datosRestaurante['Domicilio']=="on"){
+   $datosRestaurante['Domicilio']=1;
+ };
+ if($datosRestaurante['Terraza']=="on"){
+   $datosRestaurante['Terraza']=1;
+ };
+ if($datosRestaurante['Parking']=="on"){
+   $datosRestaurante['Parking']=1;
+ };
+ if($datosRestaurante['Eventos']=="on"){
+   $datosRestaurante['Eventos']=1;
+ };
+
+   Restaurante::where('restaurantes.id_restaurante','=', $id_restaurante)
+             ->update(['tipo' => $datosRestaurante['TipoRestaurante'],
+           'domicilio' =>$datosRestaurante['Domicilio'],
+           'terraza' => $datosRestaurante['Terraza'],
+           'parking' =>$datosRestaurante['Parking'],
+           'eventos_deportivos' => $datosRestaurante['Eventos'],
+           'indice_foto' =>$datosRestaurante['indiceImagen'],
+   ]);
+
+   foreach($datosPlatos as $id_plato => $arrayValores){
+       if (is_array($arrayValores)){
+         if(isset($arrayValores['estrella'])){
+           $arrayValores['estrella']=1;
+         }else{
+              $arrayValores['estrella']=0;
+         }
+
+           foreach($arrayValores as $columna => $valor){
+
+
+
+               plato::where('platos.id_plato','=', $id_plato)->update([$columna =>$valor]);
+         }
+>>>>>>> Stashed changes
 
       }
 }

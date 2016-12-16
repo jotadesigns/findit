@@ -472,6 +472,8 @@ public function update(Project $project, Task $task)
    ->leftJoin('menus', 'menus.id_restaurante', '=', 'restaurantes.id_restaurante')
    ->leftJoin('platos', 'platos.id_menu', '=', 'menus.id_menu')
      ->get();
+
+
      return view('plato.borrar', compact('restaurantes','menus'));
 
 
