@@ -51,9 +51,9 @@
       @foreach( $datos_imagen as $key=>$imagen )
       <div style="display: inline-block;margin-right:10px">
       <img style="    width: 100%;" src='{{ $imagen }}') ></img>
-      <input type="hidden" name="Datos[key]" value="{{$key}}"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
-
+      <input  class="label-text changetick"  type="hidden" name="Datos[key]" value="{{$key}}"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
       <input id="CheckImg{{$key}}" type="checkbox" name="Datos[{{$key}}]"  onclick='selectOnlyImg({{$key}},{{$cuentaFotos}})'>
+
       </div>
       @endforeach
 </div>
@@ -118,7 +118,7 @@ function  añadirCategorias(){
 
   categorias = $( "#categorias_plato" ).val().split(";");
             for (var i=0; i<categorias.length; i++) {
-              $("#tabla_categorias").append("<div class='panel-heading'><h2 class='restaurant_settings-subtitle' id='nombreCategoria' style='margin-top:15px; text-align: center;'>Categoria "+categorias[i]+"<a onclick=añadirPlatos('"+categorias[i]+"')  class='btn btn-primary' style='margin-left: 15px;'>+ plato</a></h5></div><div  id='tabla_productos"+categorias[i]+"' class='col-xs-12 col-sm-12 col-md-12 col-lg-12'></div>");
+              $("#tabla_categorias").append("<div class='panel-heading'><h2 class='restaurant_settings-subtitle' id='nombreCategoria' style='margin-top:15px; text-align: center;'>Categoria "+categorias[i]+"<a onclick=añadirPlatos('"+categorias[i]+"')  class='btn btn-primary' style='margin-left: 15px;'>+ plato</a></h5></div><div  id='tabla_productos"+categorias[i]+"' class='col-xs-12 col-sm-12 col-md-12 col-lg-12' style='padding-bottom: 50px;  background: #f1f1f1;'></div>");
             };
             document.getElementById("categorias_plato").style.border="solid 2px green";
 $("#categorias_plato").prop('disabled', true);
