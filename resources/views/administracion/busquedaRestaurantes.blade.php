@@ -36,7 +36,7 @@
 @endif
 <div style="width:100%; height:120px;">
 </div>
-</div>
+
 
 <script>
 function realizaProceso(placeid,nombre,direccion){

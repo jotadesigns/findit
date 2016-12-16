@@ -10,33 +10,44 @@
 
     @else
                       @if(!$favoritos->count() > 0)
-                          No tienes favoritos
+                          <p class="warning-empty">No tienes favoritos</p>
                       @else
 
                       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                           @foreach($favoritos as $favorito)
-                          <div class="row">
-                              <div class="producto col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-                                  <a class="trigger-overlay" data-placeid="{{ $favorito->id_restaurante }}" href="#" onclick="realizaProceso($(this).attr('data-placeid'));return false;">
-                                      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                          <img class="icono_producto" src="{{ asset('assets/imagenes/' . $favorito->icono) }}">
+
+                              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
+                                  <div class="producto producto-padding">
+                                      <div class="no-padding col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                      <a class="trigger-overlay" data-placeid="{{ $favorito->id_restaurante }}" href="#" onclick="realizaProceso($(this).attr('data-placeid'));return false;">
+                                          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                              <img class="icono_producto" src="{{ asset('assets/imagenes/' . $favorito->icono) }}">
+                                          </div>
+                                          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                              <p class="producto_nombre">{{ $favorito->nombre }}</p>
+                                               <p class="local_nombre">{{ $favorito->nombre_restaurante }}</p>
+                                          </div>
+                                      </a>
                                       </div>
-                                      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                                          <p class="producto_nombre">{{ $favorito->nombre }}</p>
-                                           <p class="local_nombre">{{ $favorito->nombre_restaurante }}</p>
+                                      <div class="no-padding col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                          <div class="no-padding col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                              <p class="producto_precio center">{{ $favorito->precio }} €</p>
+                                          </div>
+
+                                          <div class="no-padding product-starfav  col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                              <div class="product-separator"></div>
+                                              @if($favorito->favorito==1)
+                                                  <i data-placeid="{{ $favorito->id_restaurante }}" data-idplato="{{ $favorito->id_plato }}" class="p_favorito ion-android-star-outline p_votado"></i>
+                                              @else
+                                                  <i data-placeid="{{ $favorito->id_restaurante }}" data-idplato="{{ $favorito->id_plato }}" class="p_favorito ion-android-star-outline "></i>
+                                              @endif
+                                          </div>
                                       </div>
-                                  </a>
-                                  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                      <p class="producto_precio">{{ $favorito->precio }} €</p>
-                                      @if($favorito->favorito==1)
-                                          <i data-placeid="{{ $favorito->id_restaurante }}" data-idplato="{{ $favorito->id_plato }}" class="p_favorito ion-android-star-outline p_votado"></i>
-                                      @else
-                                          <i data-placeid="{{ $favorito->id_restaurante }}" data-idplato="{{ $favorito->id_plato }}" class="p_favorito ion-android-star-outline "></i>
-                                      @endif
+
                                   </div>
                               </div>
-                          </div>
+
                           @endforeach
                           </div>
 
@@ -66,32 +77,30 @@
                               }
                           });
                       });
+                      //bindeamos la modal a el evento click
+                      $( document ).on( "click", ".trigger-overlay", function() {
+                          $(".overlay").toggleClass( "open" );
+                      });
+                      $( document ).on( "click", ".overlay-close", function() {
+                          $(".overlay").removeClass( "open" );
+                      });
                       //funcion para sacar un restarante
-                      //funcion para sacar un restarante
-                          function realizaProceso(placeid){
+                              $( document ).on( "click", ".trigger-overlay", function() {
                                   var parametros = {
-                                          "placeid" : placeid
-                                  };
-
+                                              "_token": "<?php echo csrf_token() ?>",
+                                              "placeid": $(this).attr('data-placeid'),
+                                      };
                                   $.ajax({
-                                     type:'POST',
-                                     url:"{{ url('/').'/'.LaravelLocalization::getCurrentLocale().'/getrestaurante' }}",
-                                     data: {'_token': '<?php echo csrf_token() ?>', 'placeid': placeid },
-                                     success:function(data){
-                                       (function() {
-                                          $( ".trigger-overlay" ).click(function() {
-                                              $(".overlay").toggleClass( "open" );
-                                          });
-                                           $( ".overlay-close" ).click(function() {
-                                              $(".overlay").removeClass( "open" );
-                                          });
-                                         console.log(data.html);
-                                        $("#modal_content").html(data.html);
+                                      type: "POST",
+                                      url: "{{ url('/').'/'.LaravelLocalization::getCurrentLocale().'/getrestaurante' }}",
+                                      data: parametros,
 
-                                         })();
-                                     }
+                                      success: function(data){
+                                          console.log(data.html);
+                                           $("#modal_content").html(data.html);
+                                      }
                                   });
-                          }
+                              });
                     </script>
 
                       @endif

@@ -7,6 +7,12 @@
     margin:0px;
     padding:0px;
 }
+.no-padding{
+	padding: 0;
+}
+.center{
+	text-align: center;
+}
 .bordeRojoIconoAdmin{
 	border-width: 5px;
     border-style: ridge;
@@ -458,6 +464,10 @@ font-family: 'Raleway', sans-serif;
 .product-star i{
 	float: left;
 	margin-left: 43%;
+}
+.product-starfav i{
+	float: left;
+	margin-left: 30%;
 }
 .producto_nombre{
     font-size: 17px;

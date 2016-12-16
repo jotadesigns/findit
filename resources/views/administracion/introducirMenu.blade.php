@@ -69,10 +69,10 @@
 </div>
 <div style="width:100%; height:120px;">
 </div>
-</div>
 
 
-@endsection
+
+
 
 
 <script>
@@ -194,3 +194,4 @@ function selectOnlyImg(key,cuenta) {
 
 
     </script>
+@endsection

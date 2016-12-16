@@ -19,7 +19,7 @@
                 <div class="panel-heading"><h3>Categorias para los platos</h3></div>
                 <input type="text" class="form-control" id="categorias_plato" placeholder="ej: ENTRANTES Y PRIMER PLATO;BEBIDAS;POSTRES" name="categorias_plato" required>
                 <a onclick="añadirCategorias()" id="enviarCategoria" class="btn btn-primary" >Añadir Categoria</a>
-                <div  id='tabla_categorias' class='col-xs-12 col-sm-12 col-md-12 col-lg-12  tablaCategorias'></div>
+                <div  id='tabla_categorias' style="margin-top:0!important;" class='col-xs-12 col-sm-12 col-md-12 col-lg-12  tablaCategorias'></div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="datos[id_restaurante]" value="{{ $datos->id_restaurante }}">
                 <input type="hidden" name="datos[id_menu]" value="{{ $datos->id_menu }}">
