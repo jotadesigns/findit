@@ -1516,7 +1516,14 @@ ul.thumbnails.image_picker_selector li .thumbnail img{
   width: 60px;
   height: 34px;
 }
-
+.advice-bussiness{
+	font-family: 'Raleway',sans-serif;
+    font-size: 18px;
+    color: #ef0f0f;
+    margin-top: 284px;
+    font-size: 27px;
+    text-align: center;
+}
 /* Hide default HTML checkbox */
 .switch input {display:none;}
 

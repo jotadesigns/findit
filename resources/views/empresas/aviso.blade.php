@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container">
-    <h3>La empresa ha pasado a revision</h3>
+
+    <p class="advice-bussiness">La empresa ha pasado a revision</p>
 </div>
 
 @endsection
