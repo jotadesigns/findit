@@ -466,7 +466,7 @@ $indice_foto="";
  {
 
    $datosRestaurante = $request->input('Datos');
-
+$imagenResta= 0;
    $datosPlatos = $request->except('Datos');
    $imagen = $request->get('imagen');
        $user= Auth::user()->id;
@@ -487,7 +487,7 @@ $indice_foto="";
    };
 
    Restaurante::insert(['id_restaurante'=>$restauranteConcreto['id_restaurante'] , 'lat' => $restauranteConcreto['lat'], 'lng' => $restauranteConcreto['lng'], 'nombre_restaurante' => $restauranteConcreto['NombreRestaurante'], 'tipo' =>$restauranteConcreto['TipoRestaurante'] ,'domicilio' => $restauranteConcreto['Domicilio'] ,
-   'terraza' => $restauranteConcreto['Terraza'] ,'parking' => $restauranteConcreto['Parking'],'eventos_deportivos' => $restauranteConcreto['Eventos']]);
+   'terraza' => $restauranteConcreto['Terraza'] ,'parking' => $restauranteConcreto['Parking'],'eventos_deportivos' => $restauranteConcreto['Eventos'], 'indice_foto' =>$imagenResta]);
    Menu::insert(['id_restaurante'=>$restauranteConcreto['id_restaurante']]);
    RestaurantePendiente::where(['id_restaurante'=>$restauranteConcreto['id_restaurante']])->delete();
    $idMenu[$contador] = Menu::where(['id_restaurante'=>$restauranteConcreto['id_restaurante']])->first();
