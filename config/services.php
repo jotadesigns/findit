@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '1830519190492864',
         'client_secret' => 'f9287f2ea03907bd1772603b9d1787ec',
-        'redirect' => 'https://dondecomo.skn1.com/mobile/public/es/callback',
+        'redirect' => 'https://dondecomo.skn1.com/demo/public/es/callback',
     ],
 
 ];
